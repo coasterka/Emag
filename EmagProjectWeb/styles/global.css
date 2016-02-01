@@ -93,7 +93,7 @@ header ul {
 			transition-duration: 0.5s;
 		}
 		
-		#wrapper header ul li a:before {
+		header ul li a:before {
 			content: "";
 			position: absolute;
 			z-index: -1;
