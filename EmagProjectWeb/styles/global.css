@@ -41,13 +41,13 @@ body {
 #wrapper {
 	background-color: white;
 	margin: 0 auto;
-	width: 960px;
-	height: 630px;
+	width: 1100px;
 }
 
 header #siteTitle {
 	background-image: url(../images/headerBackground.jpg);
 	background-position: bottom;
+	background-size: cover;
 	background-repeat: no-repeat;
 	font-size: 5.3em;
 	color: white;
@@ -142,19 +142,42 @@ header ul {
 			color: white;
 		}
 		
+main {
+	height: 362px;
+}
+
 main * {
 	padding: 20px;
 	font-size: 1.6em;
 }
 		
 footer {
-	position: absolute;
 	color: white;
-	bottom: 0;
 	width: inherit;
+	background-color: black;
+	z-index: 1;
+	padding: 10px;
 }
 
 	footer p {
 		text-align: center;
 		font-size: 1.6em;
+		padding-top: 10px;
 	}
+	
+	footer ul {
+		display: flex;
+		justify-content: space-around;
+	}
+	
+		footer ul li a {
+			color: white;
+			font-size: 1.4em;
+			border-left: 1px solid white;
+			border-right: 1px solid white;
+			padding: 0 10px;
+		}
+		
+		footer ul li a:hover {
+			color: #6B796B;
+		}
