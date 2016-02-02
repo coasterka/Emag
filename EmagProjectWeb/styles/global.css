@@ -13,11 +13,16 @@
 	font-family: SiliwangiEngineering;
 }
 
-body, div, p, header, ul, li, a, input, main, footer {
+body, div, p, header, ul, li, a, input, aside, footer, span, section, article, fig,
+img, figcaption {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-size: 10px;
+}
+
+img, #main, ul, footer, header {
+	width: 100%;
 }
 
 ul {
@@ -49,26 +54,70 @@ header #siteTitle {
 	background-position: bottom;
 	background-size: cover;
 	background-repeat: no-repeat;
-	font-size: 5.3em;
-	color: white;
-	text-shadow: 3px 3px 5px black;
-	text-align: center;
-	font-family: CaptureIt, Tahoma, sans-serif;
-	padding: 60px 0;
+	position: relative;
 }
 
-header ul {
+	header #siteTitle p {
+		font-size: 5.3em;
+		color: white;
+		text-shadow: 0 0 20px black;
+		font-family: CaptureIt, Tahoma, sans-serif;
+		padding: 60px 0;
+		text-align: center;
+	}
+	
+	header #siteTitle #userActions {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 150px;
+		height: 26px;
+		padding-top: 3px;
+		border: 1px solid white;
+		border-bottom: none;
+		border-right: none;
+		border-top-left-radius: 5px;
+		background-color: black;
+		z-index: 3;
+	}
+	
+		header #siteTitle #userActions * {
+			color: white;
+			font-weight: bold;
+			font-size: 1.4em;
+			font-family: Tahoma, sans-serif;
+		}
+		
+		header #siteTitle #userActions a {
+			padding: 5px;
+			-webkit-transition: color 0.8s; /* Safari */
+			transition: color 0.8s;
+		}
+		
+			header #siteTitle #userActions a:hover {
+				color: #5997e1;
+				text-shadow: 1px 1px 3px black;
+				-webkit-transition: color 0.8s; /* Safari */
+    			transition: color 0.8s;
+			}
+		
+		header #siteTitle #userActions span {
+			padding: 0;
+			padding: 0 10px;
+		}
+
+header > ul {
 	display: flex;
 	justify-content: space-around;
 	height: 45px;
 	background-color: #6b796b;
 }
 
-	header ul li {
+	header > ul li {
 		margin-top: 7px;
 	}
 
-		header ul li a {
+		header > ul li a {
 			border: 1px solid white;
 			color: white;
 			padding: 5px 25px;
@@ -93,7 +142,7 @@ header ul {
 			transition-duration: 0.5s;
 		}
 		
-		header ul li a:before {
+		header > ul li a:before {
 			content: "";
 			position: absolute;
 			z-index: -1;
@@ -114,15 +163,15 @@ header ul {
 			transition-timing-function: ease-out;
 		}
 		
-		header ul li a:hover,
-		header ul li a:focus,
-		header ul li a:active {
+		header > ul li a:hover,
+		header > ul li a:focus,
+		header > ul li a:active {
 			color: black;
 		}
 		
-			header ul li a:hover:before,
-			header ul li a:focus:before,
-			header ul li a:active:before {
+			header > ul li a:hover:before,
+			header > ul li a:focus:before,
+			header > ul li a:active:before {
 				-webkit-transform: scaleY(1);
 				transform: scaleY(1);
 				border-radius: 4px;
@@ -130,7 +179,8 @@ header ul {
 		
 		header ul li input[type="search"] {
 			border: 1px solid black;
-			padding: 5px 25px;
+			padding: 5px 10px;
+			width: 240px;
 			border-radius: 5px;
 			background-color: black;
 			color: white;
@@ -142,14 +192,97 @@ header ul {
 			color: white;
 		}
 		
-main {
-	height: 362px;
+#main {
+	width: inherit;
+	overflow: auto;
+	position: relative;	
 }
 
-main * {
-	padding: 20px;
-	font-size: 1.6em;
-}
+	#main section article {
+		padding: 20px;
+		font-size: 1.6em;
+		display: inline-block;
+		float: left;
+	}
+	
+	#main aside {
+		padding: 0;
+		position: relative;
+		width: 20%;
+		display: inline-block;
+	}
+
+		#main aside ul {
+			border-top: 1px solid black;
+			border-right: 1px solid black;
+			background-color: #6b796b;
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+		}
+	
+			#main aside ul li {
+				border-bottom: 1px solid black;
+				-webkit-transition: background-color 0.5s;
+				transition: background-color 0.5s;
+			}
+			
+			#main aside ul li:hover {
+				background-color: black;
+				-webkit-transition: background-color 0.5s;
+				transition: background-color 0.5s;
+				cursor: pointer;
+			}
+				
+				#main aside ul li a {
+					color: white;
+					font-size: 14px;
+					display: inline-block;
+					text-transform: uppercase;
+					padding: 10px 5px;
+					width: 100%;
+					font-family: Tahoma, sans-serif;
+					-webkit-transition: color 0.5s;
+					transition: color 0.5s;
+				}
+				
+				#main aside ul li:hover a {
+					color: skyblue;
+					-webkit-transition: color 0.5s;
+					transition: color 0.5s;
+				}
+				
+				#main aside ul li:hover a:before {
+					color: white;
+					-webkit-transition: color 0.5s;
+					transition: color 0.5s;
+				}
+		
+				#main aside ul li a:before {
+					content: "\> ";
+					color: black;
+					-webkit-transition: color 0.5s;
+					transition: color 0.5s;
+				}
+				
+		#main aside #promotionsBanner {
+			width: 100%;
+			margin-top: 15px;
+			height: 300px;
+		}
+				
+	#main section {
+		position: relative;
+		float: right;
+		width: 78%;
+		top: 0;
+		padding: 15px;
+	}
+	
+		#main section * {
+			font-size: 14px;
+			font-family: Tahoma, sans-serif;
+		}
 		
 footer {
 	color: white;
@@ -171,13 +304,19 @@ footer {
 	}
 	
 		footer ul li a {
+			font-weight: bold;
 			color: white;
-			font-size: 1.4em;
+			font-size: 1.5em;
 			border-left: 1px solid white;
 			border-right: 1px solid white;
 			padding: 0 10px;
+			-webkit-transition: color 0.8s; /* Safari */
+    		transition: color 0.8s;
 		}
 		
 		footer ul li a:hover {
-			color: #6B796B;
+			/*color: #6B796B;*/
+			color: #5997e1;
+			-webkit-transition: color 0.8s; /* Safari */
+    		transition: color 0.8s;
 		}
