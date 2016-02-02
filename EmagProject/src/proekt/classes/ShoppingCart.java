@@ -26,4 +26,12 @@ public class ShoppingCart {
 			productsCount--;
 		}
 	}
+	
+	public void clearAll() {
+		this.cartItems.clear();//трябва да премахва всички продукти 
+	}
+	
+	public ArrayList<CartItem> getCartItems() {
+		return new ArrayList<CartItem>(this.cartItems);
+	}
 }

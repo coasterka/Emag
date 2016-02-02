@@ -12,19 +12,19 @@ public class Order {
 	private User user;
 	private double orderSum;
 	private ArrayList<CartItem> cartItems;
-	private int broi;
+	private int quantity;
 	
 	public Order(){
-		cartItems=new ArrayList<CartItems>();
-		this.numberOfOrders++;
+		cartItems = new ArrayList<CartItem>();
+		Order.numberOfOrders++;
 	}
 	
-	public void makeAnOrder(ArrayList<CartItem> cartItems){
-		if(products!=null){
-			for(CartItem cartItem:cartItems){
-				if(cartItem!=null){
-					broi++;
-					orderSum=+cartItem.getMoneyAmount;
+	public void makeAnOrder(ArrayList<CartItem> cartItems) {
+		if(cartItems != null){
+			for(CartItem cartItem : cartItems) {
+				if (cartItem != null){
+					quantity++;
+					orderSum += cartItem.getMoneyAmount();
 					this.cartItems.add(cartItem);
 				}
 			}
@@ -43,17 +43,10 @@ public class Order {
 		return this.orderSum;
 	}
 	
-	
-	
 	public void setUser(User user) throws EmagInvalidArgumentException {
-		if (user != null) {
-			this.user = user;
-		}
-		else {
+		if (user == null) {
 			throw new EmagInvalidArgumentException("No such user!");
 		}
-		
+		this.user = user;
 	}
-	
-
 }

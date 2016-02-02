@@ -15,11 +15,19 @@ public class CartItem {
 		setMoneyAmount();
 	}
 	
+	public Product getProduct() {
+		return this.product;
+	}
+	
 	private void setProduct(Product product) throws EmagInvalidArgumentException {
 		if (product == null) {
 			throw new EmagInvalidArgumentException("Product can not be null!");
 		}
 		this.product = product;
+	}
+	
+	public double getQuantityOrdered() {
+		return this.quantityOrdered;
 	}
 	
 	private void setQuantityOrdered(int quantityOrdered) throws EmagInvalidArgumentException {
