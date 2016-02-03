@@ -1,6 +1,4 @@
-package proekt.exceptions;
-
-
+package exceptions;
 
 public class EmagInvalidArgumentException extends Exception {
 

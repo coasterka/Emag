@@ -1,4 +1,4 @@
-package proekt.exceptions;
+package exceptions;
 
 public class EmagInvalidPassException extends Exception {
 

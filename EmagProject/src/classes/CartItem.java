@@ -1,7 +1,7 @@
-package proekt.classes;
+package classes;
 
-import proekt.exceptions.EmagInvalidArgumentException;
-import proekt.products.Product;
+import exceptions.EmagInvalidArgumentException;
+import products.Product;
 
 public class CartItem {
 	private int cartItemID;

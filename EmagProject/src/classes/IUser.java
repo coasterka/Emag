@@ -1,6 +1,6 @@
-package proekt.classes;
+package classes;
 
-import proekt.exceptions.EmagInvalidPassException;
+import exceptions.EmagInvalidPassException;
 
 public interface  IUser {
 	void displayCart();

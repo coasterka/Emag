@@ -1,9 +1,9 @@
-package proekt.classes;
+package classes;
 
 import java.util.ArrayList;
 
-import proekt.exceptions.EmagInvalidArgumentException;
-import proekt.products.IProduct;
+import exceptions.EmagInvalidArgumentException;
+import products.IProduct;
 
 public class Category {
 

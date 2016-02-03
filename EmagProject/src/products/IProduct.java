@@ -1,4 +1,4 @@
-package proekt.products;
+package products;
 
 public interface IProduct {
 	void displayProduct();

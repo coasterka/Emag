@@ -1,7 +1,7 @@
-package proekt.products;
+package products;
 
-import proekt.classes.Category;
-import proekt.exceptions.EmagInvalidArgumentException;
+import classes.Category;
+import exceptions.EmagInvalidArgumentException;
 
 public class SmartPhone extends MobileDevice {
 

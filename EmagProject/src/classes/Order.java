@@ -1,8 +1,8 @@
-package proekt.classes;
+package classes;
 
 import java.util.ArrayList;
 
-import proekt.exceptions.EmagInvalidArgumentException;
+import exceptions.EmagInvalidArgumentException;
 
 public class Order {
 	

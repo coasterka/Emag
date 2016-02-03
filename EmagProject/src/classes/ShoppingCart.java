@@ -1,8 +1,8 @@
-package proekt.classes;
+package classes;
 
 import java.util.ArrayList;
-import proekt.products.IProduct;
-import proekt.products.Product;
+import products.IProduct;
+import products.Product;
 
 public class ShoppingCart {
 

@@ -1,8 +1,8 @@
-package proekt.classes;
+package classes;
 
-import proekt.exceptions.EmagInvalidArgumentException;
-import proekt.exceptions.EmagInvalidPassException;
-import proekt.products.IProduct;
+import exceptions.EmagInvalidArgumentException;
+import exceptions.EmagInvalidPassException;
+import products.IProduct;
 
 public class User {
 
