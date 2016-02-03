@@ -14,12 +14,12 @@ public class Category implements ICategory {
 	private ArrayList<IProduct> products;
 	private Catalog catalog;
 
-	public Category(String name, Catalog cat) throws EmagInvalidArgumentException {
+	public Category(String name) throws EmagInvalidArgumentException {
 		this.categoryID = numberOfCategories++;
 		this.products = new ArrayList<IProduct>();
-		cat.addCategory(this);
+		this.catalog = Catalog.theCatalog;
+		this.catalog.addCategory(this);
 		setName(name);
-		setCatalog(cat);
 	}
 	
 	@Override

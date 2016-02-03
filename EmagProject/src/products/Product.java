@@ -5,7 +5,7 @@ import exceptions.EmagInvalidArgumentException;
 
 public abstract class Product implements IProduct {
 
-	private static int numberOfProducts = 0;
+	private static int numberOfProducts = 1;
 
 	private final int productID;
 	private String type;
@@ -18,7 +18,7 @@ public abstract class Product implements IProduct {
 
 	public Product(String type, String brand, String model, String color, double price, int quantityLeft, Category category)
 			throws EmagInvalidArgumentException {
-		this.productID = ++numberOfProducts;
+		this.productID = numberOfProducts++;
 		setType(type);
 		setBrand(brand);
 		setModel(model);

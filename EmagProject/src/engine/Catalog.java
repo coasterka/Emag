@@ -7,12 +7,12 @@ import products.Product;
 
 public class Catalog {
 
-	private static Catalog theCatalog = null;
+	public static Catalog theCatalog = null;
 
-	private ArrayList<Category> categories;
+	private ArrayList<ICategory> categories;
 
 	private Catalog() {
-		this.categories = new ArrayList<Category>();
+		this.categories = new ArrayList<ICategory>();
 	}
 
 	public static Catalog createCatalog() {
@@ -22,19 +22,19 @@ public class Catalog {
 		return theCatalog;
 	}
 
-	public void addCategory(Category cat) throws EmagInvalidArgumentException {
-		if (cat == null) {
+	public void addCategory(ICategory newCategory) throws EmagInvalidArgumentException {
+		if (newCategory == null) {
 			throw new EmagInvalidArgumentException("No such category!");
 		}
-		this.categories.add(cat);
+		this.categories.add(newCategory);
 	}
 	
 	public Product searchProduct(String productName) {
 		return null;
 	}
 
-	public ArrayList<Category> getCategories() {
-		ArrayList<Category> copyOfCategories = new ArrayList<Category>(categories);
+	public ArrayList<ICategory> getCategories() {
+		ArrayList<ICategory> copyOfCategories = new ArrayList<ICategory>(categories);
 		return copyOfCategories;
 	}
 
