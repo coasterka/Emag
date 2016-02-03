@@ -10,13 +10,13 @@ public class Admin extends User implements IAdmin {
 	}
 
 	@Override
-	public void addCategory(Category category) {
+	public void addCategory(ICategory category) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void addProduct(IProduct product, Category category) {
+	public void addProduct(IProduct product, ICategory category) {
 		// TODO Auto-generated method stub
 		
 	}

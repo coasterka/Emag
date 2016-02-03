@@ -8,31 +8,34 @@ public abstract class Product implements IProduct {
 	private static int numberOfProducts = 0;
 
 	private final int productID;
+	private String type;
 	private String brand;
 	private String model;
 	private String color;
 	private double price;
-	private Category cat;
+	private Category category;
 	private int quantityLeft;
 
-	public Product(String brand, String model, String color, double price, int quantityLeft, Category cat)
+	public Product(String type, String brand, String model, String color, double price, int quantityLeft, Category category)
 			throws EmagInvalidArgumentException {
 		this.productID = ++numberOfProducts;
+		setType(type);
 		setBrand(brand);
 		setModel(model);
 		setColor(color);
 		setPrice(price);
-		setCategory(cat);
+		setCategory(category);
 		setQuantityLeft(quantityLeft);
 	}
 	
-	public void displayProduct() {
-		System.out.println("brand=" + brand + ", model=" + model + ", " + "color="
-				+ color + ", price=" + price);
+	public String displayProduct() {
+		return this.toString();
 	}
 
-	public int getProductID() {
-		return this.productID;
+	@Override
+	public String toString() {
+		return "Product [productID=" + productID + ", brand=" + brand + ", model=" + model + ", color=" + color
+				+ ", price=" + price + ", category=" + category + ", quantityLeft=" + quantityLeft + "]";
 	}
 
 	public String getProductBrand() {
@@ -52,11 +55,18 @@ public abstract class Product implements IProduct {
 	}
 
 	public String getProductCategory() {
-		return this.cat.getName();
+		return this.category.getName();
 	}
 
 	public int getQuantityLeft() {
 		return this.quantityLeft;
+	}
+	
+	private void setType(String type) throws EmagInvalidArgumentException {
+		if (type == null || type.isEmpty()) {
+			throw new EmagInvalidArgumentException("Product type can not be null or empty!");
+		}
+		this.type = type;
 	}
 
 	public void setBrand(String brand) throws EmagInvalidArgumentException {
@@ -92,7 +102,7 @@ public abstract class Product implements IProduct {
 		if (category == null) {
 			throw new EmagInvalidArgumentException("No such category!");
 		}
-		this.cat = category;
+		this.category = category;
 		category.addProduct(this);
 	}
 

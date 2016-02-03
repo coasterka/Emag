@@ -5,23 +5,24 @@ import java.util.ArrayList;
 import exceptions.EmagInvalidArgumentException;
 import products.IProduct;
 
-public class Category {
+public class Category implements ICategory {
 
-	private static int numberOfCategories = 0;
+	private static int numberOfCategories = 1;
 
-	private final int categoryID; // or update automatically from DB?
+	private final int categoryID;
 	private String name;
 	private ArrayList<IProduct> products;
 	private Catalog catalog;
 
 	public Category(String name, Catalog cat) throws EmagInvalidArgumentException {
-		this.categoryID = ++numberOfCategories;
-		setName(name);
-		products = new ArrayList<IProduct>();
-		setCatalog(cat);
+		this.categoryID = numberOfCategories++;
+		this.products = new ArrayList<IProduct>();
 		cat.addCategory(this);
+		setName(name);
+		setCatalog(cat);
 	}
-
+	
+	@Override
 	public void addProduct(IProduct product) throws EmagInvalidArgumentException {
 		if (product == null) {
 			throw new EmagInvalidArgumentException("No such product!");
@@ -29,8 +30,11 @@ public class Category {
 		this.products.add(product);
 	}
 
-	public int getCategoryID() {
-		return this.categoryID;
+	@Override
+	public void listAllProducts() {
+		for (IProduct product : products) {
+			System.out.println(product);
+		}
 	}
 
 	public String getName() {
@@ -42,7 +46,7 @@ public class Category {
 		return copy;
 	}
 
-	public void setName(String name) throws EmagInvalidArgumentException {
+	private void setName(String name) throws EmagInvalidArgumentException {
 		if (name == null || name.isEmpty()) {
 			throw new EmagInvalidArgumentException("Invalid category name!");
 		}
@@ -53,7 +57,7 @@ public class Category {
 		return this.catalog;
 	}
 
-	public void setCatalog(Catalog catalog) throws EmagInvalidArgumentException {
+	private void setCatalog(Catalog catalog) throws EmagInvalidArgumentException {
 		if (catalog == null) {
 			throw new EmagInvalidArgumentException("No such catalog!");
 		}
