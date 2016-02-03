@@ -1,6 +1,6 @@
 package products;
 
-import classes.Category;
+import engine.Category;
 import exceptions.EmagInvalidArgumentException;
 
 public class Refrigerator extends Product {
