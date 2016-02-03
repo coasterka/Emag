@@ -1,0 +1,65 @@
+#main section div {
+	margin: 0 auto;
+	width: 50%;
+}
+
+#main section div p {
+	display: block;
+	padding-bottom: 20px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+	section div p input {
+		padding: 7px;
+		border-radius: 5px;
+		border: 1px solid #333;
+		width: 180px;
+	}
+	
+	section div p input[type="submit"] {
+		background-color: black;
+		color: white;
+		-webkit-transition: background-color 0.8s;
+		transition: background-color 0.8s;
+	}
+	
+	section div p input[type="submit"]:hover {
+		background-color: white;
+		border: 1px solid black;
+		color: black;
+		cursor: pointer;
+		-webkit-transition: background-color 0.8s;
+		transition: background-color 0.8s;
+	}
+	
+	section div p label {
+		display: inline-block;
+		width: 150px;
+	}
+	
+	section div p a {
+		color: black;
+		text-decoration: underline;
+	}
+	
+	section div p a:hover {
+		color: blue;
+	}
+	
+		section div p #address {
+			padding: 7px;
+			border-radius: 5px;
+			border: 1px solid #333;
+			width: 165px;
+		}
+		
+		section div p #address:active,
+		section div p #address:focus {
+			outline: none;
+		}
+
+label[for="address"] {
+	position: relative;
+	top: -30px;
+}
