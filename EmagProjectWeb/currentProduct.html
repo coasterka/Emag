@@ -2,8 +2,9 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Search results :: IT Talents</title>
+	<title>Emag Project :: IT Talents</title>
 	<link type="image/x-icon" rel="icon" href="images/emagIcon.ico" />
+	<link type="text/css" rel="stylesheet" href="styles/currentProduct.css" />
 	<link type="text/css" rel="stylesheet" href="styles/global.css" />
 </head>
 <body>
@@ -29,7 +30,7 @@
 					<a href="aboutUs.html">About us</a>
 				</li>
 				<li>
-					<input type="search" results="3" onsearch="javascript:alert('SEARCH: ' + this.value);" placeholder="Search products..." />
+					<input type="search" results onsearch="javascript:alert('SEARCH: ' + this.value);" placeholder="Search products..." />
 				</li>
 			</ul>
 		</header>
@@ -49,18 +50,22 @@
 				</div>
 			</aside>
 			<section>
-				<article>
-					Lorem ipsum dolor sit amet, similique sententiae assueverit id quo. In habemus omnesque vim, ut mundi suavitate splendide qui. Est ei delectus consulatu expetendis, in quo munere latine efficiantur. Eros definitionem mel te, delectus facilisi no usu. Eum cu saperet postulant consectetuer, ei duo congue virtute.
-				</article>
-				<article>
-					Lorem ipsum dolor sit amet, similique sententiae assueverit id quo. In habemus omnesque vim, ut mundi suavitate splendide qui. Est ei delectus consulatu expetendis, in quo munere latine efficiantur. Eros definitionem mel te, delectus facilisi no usu. Eum cu saperet postulant consectetuer, ei duo congue virtute.
-				</article>
-				<article>
-					Lorem ipsum dolor sit amet, similique sententiae assueverit id quo. In habemus omnesque vim, ut mundi suavitate splendide qui. Est ei delectus consulatu expetendis, in quo munere latine efficiantur. Eros definitionem mel te, delectus facilisi no usu. Eum cu saperet postulant consectetuer, ei duo congue virtute.
-				</article>
-				<article>
-					Lorem ipsum dolor sit amet, similique sententiae assueverit id quo. In habemus omnesque vim, ut mundi suavitate splendide qui. Est ei delectus consulatu expetendis, in quo munere latine efficiantur. Eros definitionem mel te, delectus facilisi no usu. Eum cu saperet postulant consectetuer, ei duo congue virtute.
-				</article>
+				<div>
+					<figure>
+						<img src="images/products/Inspiron_5545.jpg" />
+						<figcaption>
+							<p>Price: BGN 1799<sup>00</sup></p>
+							<p>AMD A10-7300</p>
+							<p>AMD Radeon R7 M265</p>
+							<p>8GB DDR3</p>
+							<p>1TB HDD</p>
+						</figcaption>
+					</figure>
+					<input type="submit" value="Add to cart" />
+					<div id="morePictures">
+						
+					</div>
+				</div>
 			</section>
 		</div>
 		<footer>

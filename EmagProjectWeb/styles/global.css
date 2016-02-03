@@ -39,6 +39,28 @@ input:focus, input:active, input:hover {
 	outline: none;
 }
 
+input[type="submit"],
+input[type="button"] {
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid #333;
+	width: 180px;
+	background-color: black;
+	color: white;
+	-webkit-transition: background-color 0.8s;
+	transition: background-color 0.8s;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover {
+	background-color: white;
+	border: 1px solid black;
+	color: black;
+	cursor: pointer;
+	-webkit-transition: background-color 0.8s;
+	transition: background-color 0.8s;
+}
+
 body {
 	background-color: #444;
 }
@@ -320,3 +342,91 @@ footer {
 			-webkit-transition: color 0.8s; /* Safari */
     		transition: color 0.8s;
 		}
+		
+@media screen and (max-width: 1120px) {
+	#wrapper {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	header #siteTitle p {
+		font-size: 3em;
+	}
+		
+	header ul {
+		width: 100%;
+		flex-direction: column;
+		justify-content: flex-start;
+		height: inherit;
+	}
+	
+		header ul li {
+			width: 100%;
+			z-index: 10;
+			padding: 0;
+			margin: 0;
+		}
+			header ul li a {
+				width: 100%;
+				-webkit-transition: 0;
+				transition: 0;
+				border-radius: 0;
+				padding: 5px 0;
+			}
+			
+			header ul li a:hover {
+				background-color: white;
+				color: black;
+				-webkit-transition: 0;
+				transition: 0;
+			}
+			
+			header ul li input[type="search"] {
+				/*width: 100%;
+				border-radius: 0;
+				border: 1px solid white;*/
+				display: none;
+			}
+	
+	#main {
+		display: flex;
+		flex-direction: column;
+	}
+	
+		#main section {
+			width: 100%;
+			text-align: justify;
+		}
+		
+			#main section article {
+				padding: 5px 0;
+			}
+	
+		#main aside {
+			width: 100%;
+		}
+		
+		#main aside ul li {
+			margin: 0 !important;
+		}
+		
+			#main aside ul li:last-child {
+				display: none;
+			}
+	
+			#main aside ul li a {
+				padding: 5px 0;
+				text-align: center;
+				background-color: black;
+				border: 1px solid white;
+			}
+			
+			#main aside ul li a:before {
+				content: "";
+			}
+			
+	#promotionsBanner {
+		display: none;
+	}
+}

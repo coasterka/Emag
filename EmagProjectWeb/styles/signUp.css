@@ -17,21 +17,21 @@
 		width: 180px;
 	}
 	
-	section div p input[type="submit"] {
+	/*section div p input[type="submit"] {
 		background-color: black;
 		color: white;
 		-webkit-transition: background-color 0.8s;
 		transition: background-color 0.8s;
-	}
+	}*/
 	
-	section div p input[type="submit"]:hover {
+	/*section div p input[type="submit"]:hover {
 		background-color: white;
 		border: 1px solid black;
 		color: black;
 		cursor: pointer;
 		-webkit-transition: background-color 0.8s;
 		transition: background-color 0.8s;
-	}
+	}*/
 	
 	section div p label {
 		display: inline-block;
