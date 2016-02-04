@@ -191,6 +191,10 @@ header > ul {
 			color: black;
 		}
 		
+		/*header > ul li a#adminMenu {
+			display: none;
+		}*/
+		
 			header > ul li a:hover:before,
 			header > ul li a:focus:before,
 			header > ul li a:active:before {
