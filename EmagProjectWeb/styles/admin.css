@@ -1,0 +1,34 @@
+section > div .row {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+	align-content: flex-end;
+	margin-bottom: 20px;
+}
+
+	section div a {
+		border: 1px solid black;
+		border-radius: 5px;
+		box-shadow: 2px 2px 5px #5997E1;
+		width: 20%;
+		padding: 10px;
+	}
+	
+	section div a:hover {
+		box-shadow: 2px 2px 5px black;
+	}
+	
+		section div a figure img {
+			width: 100%;
+		}
+	
+		section div a figure figcaption {
+			text-align: center;
+			font-weight: bold;
+			border-top: 1px solid black;
+			padding-top: 5px;	
+		}
+		
+			section div a:hover figure figcaption {
+				color: #6b796b;
+			}
