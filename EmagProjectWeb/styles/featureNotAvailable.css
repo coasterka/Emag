@@ -43,3 +43,12 @@ body p {
 		-webkit-transition: background-color 0.8s;
 		transition: background-color 0.8s;
 	}
+
+@media screen and (max-width: 1120px) {
+	img {
+		display: block !important;
+		margin: 0 auto;
+		width: 40% !important;
+		float: none !important;
+	}
+}
