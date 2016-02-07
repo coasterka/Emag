@@ -182,6 +182,8 @@ header > ul {
 		font-size: 1.6em;
 		display: inline-block;
 		float: left;
+		text-align: justify;
+		padding-left: 0;
 	}
 	
 	#main aside {
