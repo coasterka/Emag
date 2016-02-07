@@ -2,10 +2,10 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Emag Project :: IT Talents</title>
+	<title>Shopping Cart :: IT Talents</title>
 	<link type="image/x-icon" rel="icon" href="images/emagIcon.ico" />
 	<link type="text/css" rel="stylesheet" href="styles/global.css" />
-	<link type="text/css" rel="stylesheet" href="styles/index.css" />
+	<link type="text/css" rel="stylesheet" href="styles/shoppingCart.css" />
 </head>
 <body>
 	<div id="wrapper">
@@ -50,7 +50,43 @@
 				</div>
 			</aside>
 			<section>
-				
+				<article>
+					<div>
+						<img src="images/products/Inspiron_5545.jpg" />
+					</div>
+					<div class="specs">
+						<div>
+							<p>Dell Inspiron 5545</p>
+							<p>Quantity: 1</p>
+							<p>Price: BGN 1799<sup>00</sup></p>
+						</div>
+						<div class="deleteProduct">
+							<input type="checkbox" value="Delete product" name="deleteCheck"/>
+							<label for="deleteCheck">Delete product/s from shopcart?</label>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div>
+						<img src="images/products/pechka1.jpg" />
+					</div>
+					<div class="specs">
+						<div>
+							<p>Slide-In Electric Range (Self-Cleaning)</p>
+							<p>Quantity: 1</p>
+							<p>Price: BGN 1079<sup>00</sup></p>
+						</div>
+						<div class="deleteProduct">
+							<input type="checkbox" value="Delete product" name="deleteCheck"/>
+							<label for="deleteCheck">Delete product/s from shopcart?</label>
+						</div>
+					</div>
+				</article>
+				<div class="sendOrderArea">
+					<input type="button" value="Delete chosen" />
+					<a href="products.html"><input type="button" value="Continue shopping?" /></a>
+					<input type="submit" value="Send order!" />
+				</div>
 			</section>
 		</div>
 		<footer>
