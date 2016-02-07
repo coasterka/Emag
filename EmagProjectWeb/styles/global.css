@@ -142,6 +142,7 @@ header > ul {
 		header > ul li a {
 			border: 1px solid white;
 			color: white;
+			background: black;
 			padding: 5px 25px;
 			text-align: center;
 			border-radius: 5px;
@@ -149,59 +150,11 @@ header > ul {
 			text-transform: uppercase;
 			font-family: Tahoma, sans-serif;
 			display: inline-block;
-			vertical-align: middle;
-			-webkit-transform: translateZ(0);
-			transform: translateZ(0);
-			box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-			-webkit-backface-visibility: hidden;
-			backface-visibility: hidden;
-			-moz-osx-font-smoothing: grayscale;
-			position: relative;
-			background: black;
-			-webkit-transition-property: color;
-			transition-property: color;
-			-webkit-transition-duration: 0.5s;
-			transition-duration: 0.5s;
-		}
-		
-		header > ul li a:before {
-			content: "";
-			position: absolute;
-			z-index: -1;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: white;
-			-webkit-transform: scaleY(0);
-			transform: scaleY(0);
-			-webkit-transform-origin: 50%;
-			transform-origin: 50%;
-			-webkit-transition-property: transform;
-			transition-property: transform;
-			-webkit-transition-duration: 0.5s;
-			transition-duration: 0.5s;
-			-webkit-transition-timing-function: ease-out;
-			transition-timing-function: ease-out;
-		}
-		
-		header > ul li a:hover,
-		header > ul li a:focus,
-		header > ul li a:active {
-			color: black;
 		}
 		
 		/*header > ul li a#adminMenu {
 			display: none;
 		}*/
-		
-			header > ul li a:hover:before,
-			header > ul li a:focus:before,
-			header > ul li a:active:before {
-				-webkit-transform: scaleY(1);
-				transform: scaleY(1);
-				border-radius: 4px;
-			}
 		
 		header ul li input[type="search"] {
 			border: 1px solid black;
@@ -247,18 +200,7 @@ header > ul {
 			padding: 0;
 		}
 	
-			#main aside ul li {
-				border-bottom: 1px solid black;
-				-webkit-transition: background-color 0.5s;
-				transition: background-color 0.5s;
-			}
 			
-			#main aside ul li:hover {
-				background-color: black;
-				-webkit-transition: background-color 0.5s;
-				transition: background-color 0.5s;
-				cursor: pointer;
-			}
 				
 				#main aside ul li a {
 					color: white;
@@ -268,28 +210,10 @@ header > ul {
 					padding: 10px 5px;
 					width: 100%;
 					font-family: Tahoma, sans-serif;
-					-webkit-transition: color 0.5s;
-					transition: color 0.5s;
+					
 				}
 				
-				#main aside ul li:hover a {
-					color: skyblue;
-					-webkit-transition: color 0.5s;
-					transition: color 0.5s;
-				}
 				
-				#main aside ul li:hover a:before {
-					color: white;
-					-webkit-transition: color 0.5s;
-					transition: color 0.5s;
-				}
-		
-				#main aside ul li a:before {
-					content: "\> ";
-					color: black;
-					-webkit-transition: color 0.5s;
-					transition: color 0.5s;
-				}
 				
 		#main aside #promotionsBanner {
 			width: 100%;
@@ -347,10 +271,108 @@ footer {
     		transition: color 0.8s;
 		}
 		
+@media screen and (min-width: 801px) {
+		
+	header > ul li a {
+		vertical-align: middle;
+		-webkit-transform: translateZ(0);
+		transform: translateZ(0);
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		-moz-osx-font-smoothing: grayscale;
+		position: relative;
+		-webkit-transition-property: color;
+		transition-property: color;
+		-webkit-transition-duration: 0.5s;
+		transition-duration: 0.5s;
+	}
+	
+	header > ul li a:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: white;
+		-webkit-transform: scaleY(0);
+		transform: scaleY(0);
+		-webkit-transform-origin: 50%;
+		transform-origin: 50%;
+		-webkit-transition-property: transform;
+		transition-property: transform;
+		-webkit-transition-duration: 0.5s;
+		transition-duration: 0.5s;
+		-webkit-transition-timing-function: ease-out;
+		transition-timing-function: ease-out;
+	}
+	
+	header > ul li a:hover,
+	header > ul li a:focus,
+	header > ul li a:active {
+		color: black;
+	}
+	
+	header > ul li a:hover:before,
+	header > ul li a:focus:before,
+	header > ul li a:active:before {
+		-webkit-transform: scaleY(1);
+		transform: scaleY(1);
+		border-radius: 4px;
+	}
+	
+	#main aside ul li {
+		border-bottom: 1px solid black;
+		-webkit-transition: background-color 0.5s;
+		transition: background-color 0.5s;
+	}
+	
+	#main aside ul li:hover {
+		background-color: black;
+		-webkit-transition: background-color 0.5s;
+		transition: background-color 0.5s;
+		cursor: pointer;
+	}
+	
+		#main aside ul li a {
+			-webkit-transition: color 0.5s;
+			transition: color 0.5s;
+		}
+	
+		#main aside ul li:hover a {
+			color: skyblue;
+			-webkit-transition: color 0.5s;
+			transition: color 0.5s;
+		}
+		
+		#main aside ul li a:before {
+			content: "\> ";
+			color: black;
+			-webkit-transition: color 0.5s;
+			transition: color 0.5s;
+		}
+	
+		#main aside ul li:hover a:before {
+			color: white;
+			-webkit-transition: color 0.5s;
+			transition: color 0.5s;
+		}
+}
+		
 @media screen and (max-width: 1120px) {
 	#wrapper {
 		width: 100%;
 	}
+	
+		#wrapper #main section {
+			padding: 0;
+		}
+		
+			#wrapper #main section article {
+				padding: 10px;
+			}
 }
 
 @media screen and (max-width: 800px) {
@@ -371,15 +393,18 @@ footer {
 			padding: 0;
 			margin: 0;
 		}
-			header ul li a {
+			header ul li a,
+			#main aside ul li a {
 				width: 100%;
 				-webkit-transition: 0;
 				transition: 0;
 				border-radius: 0;
 				padding: 5px 0;
+				font-size: 14px;
 			}
 			
-			header ul li a:hover {
+			header ul li a:hover,
+			#main aside ul li a:hover {
 				background-color: white;
 				color: black;
 				-webkit-transition: 0;
@@ -432,5 +457,13 @@ footer {
 			
 	#promotionsBanner {
 		display: none;
+	}
+	
+	footer ul {
+		display: none;
+	}
+	
+	footer p {
+		padding-top: 0;
 	}
 }

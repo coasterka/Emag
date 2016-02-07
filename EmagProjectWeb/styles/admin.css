@@ -32,3 +32,38 @@ section > div .row {
 			section div a:hover figure figcaption {
 				color: #6b796b;
 			}
+
+@media screen and (max-width: 1120px) {
+	#main section {
+		padding-top: 20px !important;
+	}
+	
+		#main section div .row a figure figcaption {
+			font-size: 0.9em;
+		}
+}
+
+@media screen and (max-width: 630px) {
+	#main section div .row {
+		display: block;
+	}
+	
+		#main section div .row a {
+			width: 60%;
+			margin: 0 auto;
+			display: block;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		
+			#main section div .row a figure img {
+				width: 50%;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			#main section div .row a figure figcaption {
+				margin-top: 10px;
+				font-size: 1.2em;
+			}
+}

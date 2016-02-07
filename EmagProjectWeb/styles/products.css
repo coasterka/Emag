@@ -79,4 +79,38 @@ section {
 				padding: 5px;
 			}
 			
-			
+@media screen and (max-width: 1120px) {
+	section .row a .singleProduct {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	section div a article figure figcaption {
+		font-size: 0.8em !important;
+	}
+	
+	.productPrice {
+		font-size: 0.5em !important;
+	}
+}
+
+@media screen and (max-width: 630px) {
+	section .row {
+		display: inline-block;
+		width: 100%;
+	}
+	
+		section .row:first-child {
+			text-align: center;
+		}
+	
+			section div a article figure figcaption {
+				font-size: 1em !important;
+				text-align: center !important;
+			}
+	
+	.productPrice {
+		font-size: 0.7em !important;
+	}
+}

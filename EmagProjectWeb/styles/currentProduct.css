@@ -36,7 +36,34 @@ section > div {
 	
 input[type="submit"] {
 	float: right;
-	margin: 10px !important;
+	/*margin: 10px !important;*/
 }
 
-
+@media screen and (max-width: 630px) {
+	section > div figure {
+		display: block;
+		width: 100%;
+	}
+	
+		section > div figure img,
+		section > div figure figcaption {
+			display: block;
+			margin: 0 auto;
+			width: inherit;	
+		}
+		
+			section > div figure figcaption p {
+				text-align: center;
+				font-size: 1.3em !important;
+			}
+			
+			section > div figure figcaption p:before {
+				content: "";
+			}
+			
+			section > div input {
+				width: 100% !important;
+				float: none !important;
+				margin: 0 auto !important;
+			}
+}
