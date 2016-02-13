@@ -12,6 +12,7 @@ public abstract class User implements IUser {
 	private String name;
 	private String userName;
 	private String password;
+	private boolean isAdmin;
 	
 	public User(String name, String username, String password) throws EmagInvalidArgumentException {
 		this.customerID = numberOfCustomers++;
@@ -67,5 +68,9 @@ public abstract class User implements IUser {
 			throw new EmagInvalidArgumentException("Please choose a valid password!");
 		}
 		this.password = password;
+	}
+	
+	protected void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 }

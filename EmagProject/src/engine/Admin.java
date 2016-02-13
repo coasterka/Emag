@@ -11,6 +11,7 @@ public class Admin extends User implements IAdmin {
 
 	public Admin(String name, String username, String password) throws EmagInvalidArgumentException {
 		super(name, username, password);
+		super.setIsAdmin(true);
 	}
 
 	@Override

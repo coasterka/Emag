@@ -14,6 +14,7 @@ public class Customer extends User implements ICustomer {
 		super(name, username, password);
 		setAddress(address);
 		this.shoppingCart = new ShoppingCart();
+		super.setIsAdmin(false);
 	}
 	
 	@Override
@@ -48,7 +49,7 @@ public class Customer extends User implements ICustomer {
 		copy = this.order;
 		return copy;
 	}
-
+	
 	public void setAddress(String address) throws EmagInvalidArgumentException {
 		if (address == null || address.isEmpty()) {
 			throw new EmagInvalidArgumentException("Please enter a valid address!");

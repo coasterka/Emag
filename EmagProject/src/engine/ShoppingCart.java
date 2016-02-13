@@ -6,6 +6,7 @@ import products.Product;
 
 public class ShoppingCart {
 
+	private int id;
 	private double moneyInCart;
 	private ArrayList<CartItem> cartItems;
 
