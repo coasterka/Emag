@@ -36,11 +36,13 @@ public class Category implements ICategory {
 			System.out.println(product);
 		}
 	}
-
+	
+	@Override
 	public String getName() {
 		return this.name;
 	}
 
+	@Override
 	public ArrayList<IProduct> getProducts() {
 		ArrayList<IProduct> copy = new ArrayList<IProduct>(products);
 		return copy;
