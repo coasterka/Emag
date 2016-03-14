@@ -2,24 +2,26 @@ package products;
 
 import java.util.HashMap;
 
+import engine.Brand;
 import engine.Category;
+import engine.Color;
 import exceptions.EmagInvalidArgumentException;
 
-public abstract class Product implements IProduct {
+public class Product implements IProduct {
 
 	private static int numberOfProducts = 1;
 
 	private final int productID;
-	private String brand;
+	private Brand brand;
 	private String model;
-	private String color;
+	private Color color;
 	private double price;
 	private Category category;
 	private int quantityLeft;
 	private HashMap<String, String> attributesWithValues;
 	private String characteristics;
 
-	public Product(String brand, String model, String color, double price, int quantityLeft, Category category,
+	public Product(Brand brand, String model, Color color, double price, int quantityLeft, Category category,
 			String characteristics) throws EmagInvalidArgumentException {
 		this.productID = numberOfProducts++;
 		setBrand(brand);
@@ -46,7 +48,7 @@ public abstract class Product implements IProduct {
 		return this.productID;
 	}
 
-	public String getProductBrand() {
+	public Brand getProductBrand() {
 		return this.brand;
 	}
 
@@ -54,8 +56,36 @@ public abstract class Product implements IProduct {
 		return this.price;
 	}
 
-	private void setBrand(String brand) throws EmagInvalidArgumentException {
-		if (brand == null || brand.isEmpty()) {
+	public Color getColor() {
+		return color;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public int getProductID() {
+		return productID;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public int getQuantityLeft() {
+		return quantityLeft;
+	}
+
+	public String getCharacteristics() {
+		return characteristics;
+	}
+
+	private void setBrand(Brand brand) throws EmagInvalidArgumentException {
+		if (brand == null) {
 			throw new EmagInvalidArgumentException("Product brand cannot be null or empty!");
 		}
 		this.brand = brand;
@@ -69,8 +99,8 @@ public abstract class Product implements IProduct {
 
 	}
 
-	private void setColor(String color) throws EmagInvalidArgumentException {
-		if (color == null || color.isEmpty()) {
+	private void setColor(Color color) throws EmagInvalidArgumentException {
+		if (color == null) {
 			throw new EmagInvalidArgumentException("Product color cannot be null or empty!");
 		}
 		this.color = color;
@@ -113,5 +143,16 @@ public abstract class Product implements IProduct {
 			throw new EmagInvalidArgumentException("Value cannot be null or empty!");
 		}
 		this.attributesWithValues.put(attribute, value);
+	}
+
+	@Override
+	public void addAttributesCharacteristics(String attributes, String characteristics) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getName() {		
+		return this.model;
 	}
 }

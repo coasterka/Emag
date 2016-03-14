@@ -63,14 +63,34 @@ public abstract class User implements IUser {
 	}
 	
 	private void setPassword(String password) throws EmagInvalidArgumentException {
-		if (password.length() < MIN_LENGTH_FOR_PASSWORDS || password == null) {
+		if (password == null || password.length() < MIN_LENGTH_FOR_PASSWORDS) {
 
 			throw new EmagInvalidArgumentException("Please choose a valid password!");
 		}
 		this.password = password;
 	}
 	
-	protected void setIsAdmin(boolean isAdmin) {
+	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public boolean isAdmin() {
+		return isAdmin;
 	}
 }

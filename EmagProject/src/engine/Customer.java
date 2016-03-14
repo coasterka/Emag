@@ -60,4 +60,10 @@ public class Customer extends User implements ICustomer {
 	public ShoppingCart getCart() {
 		return shoppingCart;
 	}
+
+	public String getAddress() {
+		return address;
+	}
+	
+	
 }

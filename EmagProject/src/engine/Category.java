@@ -7,15 +7,12 @@ import products.IProduct;
 
 public class Category implements ICategory {
 
-	private static int numberOfCategories = 1;
-
-	private final int categoryID;
+	private int categoryID;
 	private String name;
 	private ArrayList<IProduct> products;
 	private Catalog catalog;
 
-	public Category(String name) throws EmagInvalidArgumentException {
-		this.categoryID = numberOfCategories++;
+	public Category(String name) throws EmagInvalidArgumentException {		
 		this.products = new ArrayList<IProduct>();
 		this.catalog = Catalog.theCatalog;
 		this.catalog.addCategory(this);
@@ -59,10 +56,18 @@ public class Category implements ICategory {
 		return this.catalog;
 	}
 
-	private void setCatalog(Catalog catalog) throws EmagInvalidArgumentException {
+	public void setCatalog(Catalog catalog) throws EmagInvalidArgumentException {
 		if (catalog == null) {
 			throw new EmagInvalidArgumentException("No such catalog!");
 		}
 		this.catalog = catalog;
+	}
+
+	public int getCategoryID() {
+		return categoryID;
+	}
+
+	public void setCategoryID(int categoryID) {
+		this.categoryID = categoryID;
 	}
 }

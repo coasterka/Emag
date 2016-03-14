@@ -68,4 +68,12 @@ public class Admin extends User implements IAdmin {
 		}
 	}
 
+	public Catalog getCatalog() {
+		return catalog;
+	}
+
+	public void setCatalog(Catalog catalog) {
+		this.catalog = catalog;
+	}
+
 }

@@ -8,6 +8,7 @@ import products.Product;
 public class Catalog {
 
 	public static Catalog theCatalog = null;
+	private int id;
 
 	private ArrayList<ICategory> categories;
 
@@ -15,7 +16,7 @@ public class Catalog {
 		this.categories = new ArrayList<ICategory>();
 	}
 
-	public static Catalog createCatalog() {
+	public synchronized static Catalog createCatalog() {
 		if (theCatalog == null) {
 			theCatalog = new Catalog();
 		}
@@ -36,6 +37,14 @@ public class Catalog {
 	public ArrayList<ICategory> getCategories() {
 		ArrayList<ICategory> copyOfCategories = new ArrayList<ICategory>(categories);
 		return copyOfCategories;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
