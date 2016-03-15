@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -59,7 +60,10 @@ public class SignUp extends HttpServlet {
 				ps.setString(3, username);
 				ps.setString(4, password1);
 				ps.setString(5, address);
-				out.println("User is created successfully!");
+				ps.executeUpdate();
+				out.println("<h1 style=\"color: #FFF\" align=\"center\">User is created successfully!</h1>");
+				RequestDispatcher rd = request.getRequestDispatcher("index.html");
+				rd.include(request, response);
 			}
 		} catch (EmagInvalidPassException | SQLException e) {
 			e.printStackTrace();
