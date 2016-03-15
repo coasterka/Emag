@@ -18,7 +18,7 @@ public class CheckUserResult extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        out.println("<h1>Welcome, " + request.getParameter("username") + "!</h1>");
+        out.println("<h1 align=\"center\">Welcome, " + request.getParameter("username") + "!</h1>");
 	}
 
 }

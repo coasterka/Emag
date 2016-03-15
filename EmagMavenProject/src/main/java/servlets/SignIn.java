@@ -10,19 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import engine.Validate;
+import exceptions.EmagInvalidArgumentException;
+import exceptions.ValidationException;
 
 public class SignIn extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-
-	public SignIn() {
-		super();
-	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -32,13 +25,26 @@ public class SignIn extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
-		if (Validate.checkUser(username, password)) {
-			RequestDispatcher rs = request.getRequestDispatcher("CheckUserResult");
-			rs.forward(request, response);
+		RequestDispatcher rd = null;
+		
+		if (Validate.checkUserOnSignIn(username, password)) {			
+			try {
+				if (Validate.isUserAdminById()) {
+					response.sendRedirect("adminPages/admin.html");
+//					rs.include(request, response);
+				}
+				else {
+					rd = request.getRequestDispatcher("CheckUserResult");
+					rd.forward(request, response);
+				}
+			} catch (ValidationException | EmagInvalidArgumentException e) {
+				e.printStackTrace();
+			}
+			
 		} else {
 			out.println("<h1 style=\"color: #FFF\" align=\"center\">Username or Password incorrect!</h1>");
-			RequestDispatcher rs = request.getRequestDispatcher("index.html");
-			rs.include(request, response);
+			rd = request.getRequestDispatcher("index.html");
+			rd.include(request, response);
 		}
 	}
 
