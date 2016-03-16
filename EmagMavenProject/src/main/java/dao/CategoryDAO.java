@@ -12,8 +12,8 @@ import exceptions.EmagInvalidArgumentException;
 
 public class CategoryDAO extends AbstractDAO implements ICategoryDAO {
 	
-	private static final String INSERT_NEW_CATEGORY_SQL = "INSERT INTO categories VALUES (null, ?, ?);";
-	private static final String FIND_CATEGORY_BY_ID_SQL = "SELECT * FROM category WHERE category_id = ?";
+	private static final String INSERT_NEW_CATEGORY_SQL = "INSERT INTO categories VALUES (null, 1, ?);";
+	private static final String FIND_CATEGORY_BY_ID_SQL = "SELECT * FROM categories WHERE category_id = ?";
 	
 	@Override
 	public int addCategory(Category category) throws CategoryDAOException {
@@ -23,9 +23,7 @@ public class CategoryDAO extends AbstractDAO implements ICategoryDAO {
 				PreparedStatement ps = getCon().prepareStatement(INSERT_NEW_CATEGORY_SQL,
 						PreparedStatement.RETURN_GENERATED_KEYS);
 
-				
-				ps.setInt(1, 1);
-				ps.setString(2, category.getName());
+				ps.setString(1, category.getName());
 
 				ps.executeUpdate();
 

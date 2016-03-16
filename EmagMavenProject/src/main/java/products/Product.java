@@ -150,9 +150,4 @@ public class Product implements IProduct {
 		// TODO Auto-generated method stub
 		
 	}
-
-	@Override
-	public String getName() {		
-		return this.model;
-	}
 }

@@ -15,6 +15,8 @@ import exceptions.ValidationException;
 
 public class SignIn extends HttpServlet {
 
+	private static final String RELOAD_PAGE_SCRIPT = "<script>document.location = \'./signIn.html\'</script>";
+	private static final String WRONG_USERNAME_PASSWORD_MESSAGE = "<script>alert(\'Username or password incorrect!\')</script>";
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +33,6 @@ public class SignIn extends HttpServlet {
 			try {
 				if (Validate.isUserAdminById()) {
 					response.sendRedirect("adminPages/admin.html");
-//					rs.include(request, response);
 				}
 				else {
 					rd = request.getRequestDispatcher("CheckUserResult");
@@ -42,10 +43,8 @@ public class SignIn extends HttpServlet {
 			}
 			
 		} else {
-			out.println("<h1 style=\"color: #FFF\" align=\"center\">Username or Password incorrect!</h1>");
-			rd = request.getRequestDispatcher("index.html");
-			rd.include(request, response);
+			out.println(WRONG_USERNAME_PASSWORD_MESSAGE);
+			out.println(RELOAD_PAGE_SCRIPT);
 		}
 	}
-
 }

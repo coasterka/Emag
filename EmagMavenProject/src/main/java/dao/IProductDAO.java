@@ -22,5 +22,7 @@ public interface IProductDAO {
 
 	List<Product> getProductsByCategory(int categoryId) throws EmagInvalidArgumentException, ProductDAOException,
 			BrandDAOException, ColorDAOException, CategoryDAOException;
+	
+	List<Product> getAllProducts() throws CategoryDAOException, EmagInvalidArgumentException;
 
 }

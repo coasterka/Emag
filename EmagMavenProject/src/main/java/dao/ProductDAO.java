@@ -1,11 +1,15 @@
 package dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import engine.Brand;
+import engine.Category;
+import engine.Color;
 import exceptions.BrandDAOException;
 import exceptions.CategoryDAOException;
 import exceptions.ColorDAOException;
@@ -152,7 +156,34 @@ public class ProductDAO extends AbstractDAO implements IProductDAO {
 			e.printStackTrace();
 			throw new ProductDAOException("The driver cannot be updated right now. Thank you.", e);
 		}
-		
+	}
+	
+	@Override
+	public List<Product> getAllProducts() throws CategoryDAOException, EmagInvalidArgumentException {
+		List<Product> products = new ArrayList<Product>();
+		Connection con = null;
+		try {
+			con = getCon();
+			ResultSet productsSet = con.prepareStatement("SELECT * FROM products;").executeQuery();
+			while (productsSet.next()) {
+				int productId = productsSet.getInt(1); // we don't use the returned id
+				int brandId = productsSet.getInt(2);
+				int colorId = productsSet.getInt(3);
+				int categoryId = productsSet.getInt(4);
+				String model = productsSet.getString(5);
+				String characteristics = productsSet.getString(6);
+				double price = productsSet.getDouble(7);
+				int quantityLeft = productsSet.getInt(8);
+				Brand brand = (new BrandDAO()).getBrandById(brandId);
+				Color color = (new ColorDAO()).getColorById(colorId);
+				Category category = (new CategoryDAO()).getCategoryById(categoryId);
+				products.add(new Product(brand, model, color, price, quantityLeft, category, characteristics));
+			}
+			return products;
+		} catch (SQLException | BrandDAOException | ColorDAOException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

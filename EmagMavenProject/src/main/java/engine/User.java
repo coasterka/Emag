@@ -9,9 +9,12 @@ public abstract class User implements IUser {
 	private static final int MIN_LENGTH_FOR_PASSWORDS = 6;
 
 	private int customerID;
+	private Catalog catalog;
+	private ShoppingCart shoppingCart;
 	private String name;
 	private String userName;
 	private String password;
+	private String address;
 	private boolean isAdmin;
 	
 	public User(String name, String username, String password) throws EmagInvalidArgumentException {
@@ -19,6 +22,15 @@ public abstract class User implements IUser {
 		setName(name);
 		setUserName(username);
 		setPassword(password);
+	}
+	
+	public User(ShoppingCart shoppingCart, String name, String username, String password, String address) throws EmagInvalidArgumentException {
+		this.customerID = numberOfCustomers++;
+		this.shoppingCart = shoppingCart;
+		setName(name);
+		setUserName(username);
+		setPassword(password);
+		setAddress(address);
 	}
 	
 	@Override
@@ -70,6 +82,13 @@ public abstract class User implements IUser {
 		this.password = password;
 	}
 	
+	private void setAddress(String address) throws EmagInvalidArgumentException {
+		if (address == null || address.isEmpty()) {
+			throw new EmagInvalidArgumentException("Invalid address!");
+		}
+		this.address = address;
+	}
+	
 	public void setIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
@@ -88,6 +107,10 @@ public abstract class User implements IUser {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public String getAddress() {
+		return address;
 	}
 
 	public boolean isAdmin() {

@@ -2,7 +2,7 @@ package engine;
 
 public enum Color {
 	
-	GREEN, BLUE, RED, WHITE, BLACK;
+	BLACK, BLUE, WHITE, SILVER, RED, YELLOW, GREEN;
 	
 	private int id;
 	

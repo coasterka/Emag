@@ -15,7 +15,7 @@ public class Category implements ICategory {
 	public Category(String name) throws EmagInvalidArgumentException {		
 		this.products = new ArrayList<IProduct>();
 		this.catalog = Catalog.theCatalog;
-		this.catalog.addCategory(this);
+//		this.catalog.addCategory(this);
 		setName(name);
 	}
 	

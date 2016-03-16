@@ -7,21 +7,32 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.DBConnection;
-import exceptions.EmagExistingObjectException;
+import dao.UserDAO;
+import engine.Customer;
+import engine.User;
+import exceptions.EmagInvalidArgumentException;
 import exceptions.EmagInvalidPassException;
+import exceptions.UserDAOException;
 
 public class SignUp extends HttpServlet {
 
-	private static final String INSERT_USER_QUERY = "INSERT INTO users VALUES (null, 1, ?, ?, ?, ?, 0, ?);";
+	private static final String EXISTING_USER_MESSAGE = "<script>alert(\"This username is already taken! Please choose another one!\");</script>";
+	private static final String SUCCESS_MESSAGE = "<script>alert(\"Registration is successful!\");</script></h1>";
+	private static final String PASSWORD_DONT_MATCH_MESSAGE = "<script>alert(\"Passwords didn\'t match!\");</script>";
+	private static final String NOT_ALL_FIELDS_ARE_FILLED_SCRIPT = "<script>alert(\"All fields are required!\");</script>";
+	private static final String BACK_TO_INDEX_SCRIPT = "<script>document.location = \"./index.html\";</script>";
+	private static final String INVALID_PASSWORD_MESSAGE_SCRIPT = "<script>alert(\"Password must have at least one digit, one uppercase and one lowercase character!\")</script>";
+	private static final String RELOAD_PAGE_SCRIPT = "<script>document.location = \"./signUp.html\";</script>";
 	private static final String SELECT_USER_QUERY = "SELECT * FROM users WHERE username=?";
 	private static final int MIN_PASSWORD_LENGTH = 6;
+	private static final String INVALID_PASSWORD_LENGTH_MESSAGE = "<script>alert(\"Password must be at least "
+			+ MIN_PASSWORD_LENGTH + " characters long!\")</script>";
 	private static final long serialVersionUID = 1L;
 	private static PrintWriter out;
 
@@ -38,15 +49,18 @@ public class SignUp extends HttpServlet {
 		String address = request.getParameter("address");
 
 		if (username.isEmpty() || password1.isEmpty() || password2.isEmpty() || name.isEmpty() || address.isEmpty()) {
-			out.println("<script>alert(\"All fields are required!\")</script>");
+			out.println(NOT_ALL_FIELDS_ARE_FILLED_SCRIPT);
+			out.println(RELOAD_PAGE_SCRIPT);
+		}
+
+		if (!arePasswordsTheSame(password1, password2)) {
+			out.println(PASSWORD_DONT_MATCH_MESSAGE);
+			out.println(RELOAD_PAGE_SCRIPT);
 		}
 
 		if (userExists(username)) {
-			try {
-				throw new EmagExistingObjectException("You are already registered!");
-			} catch (EmagExistingObjectException e) {
-				e.printStackTrace();
-			}
+			out.println(EXISTING_USER_MESSAGE);
+			out.println(RELOAD_PAGE_SCRIPT);
 		}
 
 		try {
@@ -54,18 +68,23 @@ public class SignUp extends HttpServlet {
 					&& checkPasswordStrength(password1)) {
 				Connection con = DBConnection.getInstance().getCon();
 				// (null, 1, ?, ?, ?, ?, 0, ?)
-				PreparedStatement ps = con.prepareStatement(INSERT_USER_QUERY);
-				ps.setString(1, null);
-				ps.setString(2, name);
-				ps.setString(3, username);
-				ps.setString(4, password1);
-				ps.setString(5, address);
-				ps.executeUpdate();
-				out.println("<h1 style=\"color: #FFF\" align=\"center\">User is created successfully!</h1>");
-				RequestDispatcher rd = request.getRequestDispatcher("index.html");
-				rd.include(request, response);
+				User newUser = new Customer(null, name, username, password1, address); // register
+																						// a
+																						// regular
+																						// customer
+																						// -
+																						// not
+																						// an
+																						// admin
+				UserDAO dao = new UserDAO();
+				dao.addUser(newUser);
+				out.println(SUCCESS_MESSAGE);
+				out.println(BACK_TO_INDEX_SCRIPT);
+				// RequestDispatcher rd =
+				// request.getRequestDispatcher("index.html");
+				// rd.include(request, response);
 			}
-		} catch (EmagInvalidPassException | SQLException e) {
+		} catch (EmagInvalidPassException | EmagInvalidArgumentException | UserDAOException e) {
 			e.printStackTrace();
 		}
 
@@ -99,9 +118,9 @@ public class SignUp extends HttpServlet {
 
 		boolean isStrongEnough = true;
 
-		if (password.isEmpty()) {
-			throw new EmagInvalidPassException("Password cannot be empty!");
-		}
+		// if (password.isEmpty()) {
+		// throw new EmagInvalidPassException("Password cannot be empty!");
+		// }
 
 		boolean isLongEnough = password.length() < MIN_PASSWORD_LENGTH;
 		boolean hasUppercase = !password.equals(password.toLowerCase());
@@ -110,11 +129,13 @@ public class SignUp extends HttpServlet {
 
 		if (isLongEnough || !hasUppercase || !hasLowercase || !hasDigit) {
 			if (isLongEnough) {
-				out.println("<script>alert(\"Password must be at least " + MIN_PASSWORD_LENGTH + " characters long!\")</script>");
+				out.println(INVALID_PASSWORD_LENGTH_MESSAGE);
+				out.println(RELOAD_PAGE_SCRIPT);
 				isStrongEnough = false;
 			}
 			if (!hasUppercase || !hasLowercase || !hasDigit) {
-				out.println("<script>alert(\"Password must have at least one digit, one uppercase and one lowercase character!\")</script>");
+				out.println(INVALID_PASSWORD_MESSAGE_SCRIPT);
+				out.println(RELOAD_PAGE_SCRIPT);
 				isStrongEnough = false;
 			}
 			// set the boolean values again for every new attempt

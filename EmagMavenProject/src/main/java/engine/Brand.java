@@ -2,7 +2,7 @@ package engine;
 
 public enum Brand {
 
-	SAMSUNG, LG, WHIRLPOOL, ARISTON, APPLE;
+	SONY, HTC, DELL, GORENJE, SAMSUNG, LENOVO;
 	
 	private int id;
 	

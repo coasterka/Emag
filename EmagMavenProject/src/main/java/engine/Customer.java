@@ -6,17 +6,19 @@ import products.IProduct;
 
 public class Customer extends User implements ICustomer {
 
-	private String address;
 	private ShoppingCart shoppingCart;
 	private Order order;
 
-	public Customer(String name, String username, String password, String address) throws EmagInvalidArgumentException {
+	public Customer(String name, String username, String password) throws EmagInvalidArgumentException {
 		super(name, username, password);
-		setAddress(address);
 		this.shoppingCart = new ShoppingCart();
 		super.setIsAdmin(false);
 	}
 	
+	public Customer(ShoppingCart shoppingCart, String name, String username, String password, String address) throws EmagInvalidArgumentException {
+		super(shoppingCart, name, username, password, address);
+	}
+
 	@Override
 	public void displayCart() {
 		if (this.shoppingCart != null) {
@@ -49,21 +51,9 @@ public class Customer extends User implements ICustomer {
 		copy = this.order;
 		return copy;
 	}
-	
-	public void setAddress(String address) throws EmagInvalidArgumentException {
-		if (address == null || address.isEmpty()) {
-			throw new EmagInvalidArgumentException("Please enter a valid address!");
-		}
-		this.address = address;
-	}
 
 	public ShoppingCart getCart() {
 		return shoppingCart;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-	
+	}	
 	
 }
