@@ -7,7 +7,7 @@ import engine.Category;
 import engine.Color;
 import exceptions.EmagInvalidArgumentException;
 
-public class Product implements IProduct {
+public class Product implements IProduct, Comparable<Product> {
 
 	private static int numberOfProducts = 1;
 
@@ -43,7 +43,7 @@ public class Product implements IProduct {
 		return "Product [productID=" + productID + ", brand=" + brand + ", model=" + model + ", color=" + color
 				+ ", price=" + price + ", category=" + category + ", quantityLeft=" + quantityLeft + "]";
 	}
-	
+
 	public int getId() {
 		return this.productID;
 	}
@@ -134,7 +134,7 @@ public class Product implements IProduct {
 		}
 		this.characteristics = characteristics;
 	}
-	
+
 	public void setAttributesWithValues(String attribute, String value) throws EmagInvalidArgumentException {
 		if (attribute == null || attribute.isEmpty()) {
 			throw new EmagInvalidArgumentException("Attribute cannot be null or empty!");
@@ -148,6 +148,17 @@ public class Product implements IProduct {
 	@Override
 	public void addAttributesCharacteristics(String attributes, String characteristics) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public int compareTo(Product o) {
+		if (this.getPrice() == o.getPrice()) {
+			if (this.getBrand().compareTo(o.getBrand()) == 0) {
+				return this.getModel().compareTo(o.getModel());
+			}
+			return this.getBrand().compareTo(o.getBrand());
+		}
+		return (int) (this.getPrice()-o.getPrice());
 	}
 }
