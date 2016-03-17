@@ -8,13 +8,12 @@ import engine.Brand;
 import exceptions.BrandDAOException;
 import exceptions.EmagInvalidArgumentException;
 
-
 public class BrandDAO extends AbstractDAO implements IBrandDAO {
-	
+
 	private static final String SELECT_FROM_BRANDS_WHERE_BRAND_NAME = "SELECT * FROM brands WHERE brand_name = ?";
 	private static final String INSERT_NEW_BRAND_SQL = "INSERT INTO brands VALUES (null, ?);";
 	private static final String FIND_BRAND_BY_ID_SQL = "SELECT * FROM brands WHERE brand_id = ?";
-	
+
 	@Override
 	public int addBrand(Brand brand) throws BrandDAOException {
 		if (brand != null) {
@@ -22,10 +21,10 @@ public class BrandDAO extends AbstractDAO implements IBrandDAO {
 			try {
 				PreparedStatement ps = getCon().prepareStatement(INSERT_NEW_BRAND_SQL,
 						PreparedStatement.RETURN_GENERATED_KEYS);
-				
+
 				String brandToString = brand.name();
 				ps.setString(1, brandToString);
-				
+
 				ps.executeUpdate();
 
 				ResultSet result = ps.getGeneratedKeys();
@@ -40,9 +39,9 @@ public class BrandDAO extends AbstractDAO implements IBrandDAO {
 			throw new BrandDAOException("No such brand!");
 		}
 	}
-	
+
 	@Override
-	public Brand getBrandById(int brandId) throws BrandDAOException, EmagInvalidArgumentException{
+	public Brand getBrandById(int brandId) throws BrandDAOException, EmagInvalidArgumentException {
 		Brand wantedBrand = null;
 
 		try {
@@ -52,8 +51,8 @@ public class BrandDAO extends AbstractDAO implements IBrandDAO {
 			result.next();
 
 			String brandName = result.getString(2);
-			wantedBrand = Brand.valueOf(brandName);			
-			
+			wantedBrand = Brand.valueOf(brandName);
+
 			return wantedBrand;
 
 		} catch (SQLException e) {
@@ -61,19 +60,20 @@ public class BrandDAO extends AbstractDAO implements IBrandDAO {
 			throw new BrandDAOException("The brand with id " + brandId + " cannot be found . Thank you.", e);
 		}
 	}
-	
-	public int getBrandByName(String brand) throws BrandDAOException{
+
+	public int getBrandByName(String brand) throws BrandDAOException {
 		int id;
 
 		try {
 			PreparedStatement ps = getCon().prepareStatement(SELECT_FROM_BRANDS_WHERE_BRAND_NAME);
 			ps.setString(1, brand);
 			ResultSet result = ps.executeQuery();
-			result.next();
+			if (result.next()) {
+				id = result.getInt(1);
+			} else {
+				throw new BrandDAOException();
+			}
 
-			id = result.getInt(1);
-					
-			
 			return id;
 
 		} catch (SQLException e) {

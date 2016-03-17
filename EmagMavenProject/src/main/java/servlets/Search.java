@@ -29,7 +29,7 @@ public class Search extends HttpServlet {
 			List<Product> products = new ArrayList<Product>(
 					new ProductDAO().getProductByBrand(request.getParameter("search")));
 			pw.println("<!DOCTYPE html> " + "<html>" + "<head>" + "<meta charset=\"UTF-8\" />"
-					+ "<title>Sign in :: IT Talents</title>"
+					+ "<title>Search :: IT Talents</title>"
 					+ "<link type=\"image/x-icon\" rel=\"icon\" href=\"images/emagIcon.ico\" />"
 					+ "<link type=\"text/css\" rel=\"stylesheet\" href=\"styles/signIn.css\" />"
 					+ "	<link type=\"text/css\" rel=\"stylesheet\" href=\"styles/global.css\" />" + "</head>" + "<body>"
@@ -79,7 +79,8 @@ public class Search extends HttpServlet {
 		} catch (CategoryDAOException e) {
 			e.printStackTrace();
 		} catch (BrandDAOException e) {
-			e.printStackTrace();
+			pw.println("<script>alert(\"No such brand! Try something different!\");</script>");
+			pw.println("<script>document.location = \"index.html\"</script>");
 		} catch (ColorDAOException e) {
 			e.printStackTrace();
 		} catch (ProductDAOException e) {

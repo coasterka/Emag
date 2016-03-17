@@ -197,7 +197,6 @@ public class ProductDAO extends AbstractDAO implements IProductDAO {
 		
 		ResultSet resultSet = ps.executeQuery();
 		
-		
 		IColorDAO color = new ColorDAO();
 		ICategoryDAO category = new CategoryDAO();			
 					
