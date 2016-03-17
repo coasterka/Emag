@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Product :: IT Talents</title>
+<link type="image/x-icon" rel="icon" href="../images/emagIcon.ico" />
+<link type="text/css" rel="stylesheet" href="../styles/global.css" />
+<link type="text/css" rel="stylesheet" href="../styles/create.css" />
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="siteTitle">
+				<p>Emag Project - IT Talents</p>
+				<div id="userActions">
+					<a href="../signIn.html">Sign in</a><span>/</span><a
+						href="../signUp.html">Sign up</a>
+				</div>
+			</div>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../products.html">Products</a></li>
+				<li><a href="../contacts.html">Contacts</a></li>
+				<li><a href="../aboutUs.html">About us</a></li>
+				<li><input type="search" results
+					onsearch="javascript:alert('SEARCH: ' + this.value);"
+					placeholder="Search products..." /></li>
+			</ul>
+		</header>
+		<div id="main">
+			<aside>
+				<ul id="categories">
+					<li><a href="#">Mobile devices</a></li>
+					<li><a href="#">Television sets</a></li>
+					<li><a href="#">Appliances</a></li>
+					<li><a href="../shoppingCart.html">Shopping cart</a></li>
+					<li><a href="#">Q &amp; A</a></li>
+				</ul>
+				<div id="promotionsBanner">
+					<a href="#"> <img alt="promotions" src="../images/banner1.jpg" />
+					</a>
+				</div>
+			</aside>
+			<section>
+				<div>
+					<form method="post" action="../CreateProduct">
+						<table>
+							<tr>
+								<td><label for="brandName">Select brand:</label></td>
+								<td><select name="brandName">
+										<option value="sony">SONY</option>
+										<option value="htc">HTC</option>
+										<option value="dell">DELL</option>
+										<option value="gorenje">GORENJE</option>
+										<option value="samsung">SAMSUNG</option>
+										<option value="lenovo">LENOVO</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="color">Select color:</label></td>
+								<td><select name="color">
+									<option value="black">BLACK</option>
+									<option value="blue">BLUE</option>
+									<option value="white">WHITE</option>
+									<option value="silver">SILVER</option>
+									<option value="red">RED</option>
+									<option value="yellow">YELLOW</option>
+									<option value="green">GREEN</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="category">Select category:</label></td>
+								<td><select
+									name="category">
+									<option value="newCategory">NEW CATEGORY</option>
+									<option value="anotherCategory">ANOTHER CATEGORY</option>
+									<option value="nqkva">NQKVA</option>
+								</select></td>
+							</tr>
+							<tr>
+								<td><label for="productModel">Enter product model:</label></td>
+								<td><input
+									type="text" placeholder="Product model" name="productModel" /></td>
+							</tr>
+							<tr>
+								<td><label for="productChars">Enter product characteristics:</label></td>
+								<td><input type="text" placeholder="Product characteristics"
+									name="productChars" /></td>
+							</tr>
+							<tr>
+								<td><label for="productPrice">Enter product price:</label></td>
+								<td><input type="text" placeholder="Product price" name="productPrice" /></td>
+							</tr>
+							<tr>
+								<td><label for="productQuantity">Enter product quantity:</label></td>
+								<td><input
+									type="text" placeholder="Product quantity"
+									name="productQuantity" /></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="submit" value="Add product!" /></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</section>
+		</div>
+		<footer>
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../products.html">Products</a></li>
+				<li><a href="../products.html">Contacts</a></li>
+				<li><a href="../products.html">About us</a></li>
+				<li><a href="http://ittalents.bg/" target="_blank">IT
+						Talents</a></li>
+			</ul>
+			<p>&copy; Emag Project - IT Talents Season 5 March 2016</p>
+		</footer>
+	</div>
+</body>
+</html>

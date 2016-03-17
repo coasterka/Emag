@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Shopping Cart :: IT Talents</title>
+	<link type="image/x-icon" rel="icon" href="images/emagIcon.ico" />
+	<link type="text/css" rel="stylesheet" href="styles/global.css" />
+	<link type="text/css" rel="stylesheet" href="styles/shoppingCart.css" />
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<div id="siteTitle">
+				<p>Emag Project - IT Talents</p>
+				<div id="userActions">
+					<a href="signIn.html">Sign in</a><span>/</span><a href="signUp.html">Sign up</a>
+				</div>
+			</div>
+			<ul>
+				<li>
+					<a href="index.html">Home</a>
+				</li>
+				<li>
+					<a href="products.html">Products</a>
+				</li>
+				<li>
+					<a href="contacts.html">Contacts</a>
+				</li>
+				<li>
+					<a href="aboutUs.html">About us</a>
+				</li>
+				<li>
+					<input type="search" results onsearch="javascript:alert('SEARCH: ' + this.value);" placeholder="Search products..." />
+				</li>
+			</ul>
+		</header>
+		<div id="main">
+			<aside>
+				<ul id="categories">
+					<li><a href="#">Mobile devices</a></li>
+					<li><a href="#">Television sets</a></li>
+					<li><a href="#">Appliances</a></li>
+					<li><a href="shoppingCart.html">Shopping cart</a></li>
+					<li><a href="#">Q &amp; A</a></li>
+				</ul>
+				<div id="promotionsBanner">
+					<a href="#">
+						<img alt="promotions" src="images/banner1.jpg" />
+					</a>
+				</div>
+			</aside>
+			<section>
+				<article>
+					<div>
+						<img src="images/products/Inspiron_5545.jpg" />
+					</div>
+					<div class="specs">
+						<div>
+							<p>Dell Inspiron 5545</p>
+							<p>Quantity: 1</p>
+							<p>Price: BGN 1799<sup>00</sup></p>
+						</div>
+						<div class="deleteProduct">
+							<input type="checkbox" value="Delete product" name="deleteCheck"/>
+							<label for="deleteCheck">Delete product/s from shopcart?</label>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div>
+						<img src="images/products/pechka1.jpg" />
+					</div>
+					<div class="specs">
+						<div>
+							<p>Slide-In Electric Range (Self-Cleaning)</p>
+							<p>Quantity: 1</p>
+							<p>Price: BGN 1079<sup>00</sup></p>
+						</div>
+						<div class="deleteProduct">
+							<input type="checkbox" value="Delete product" name="deleteCheck"/>
+							<label for="deleteCheck">Delete product/s from shopcart?</label>
+						</div>
+					</div>
+				</article>
+				<div class="sendOrderArea">
+					<input type="button" value="Delete chosen" />
+					<a href="products.html"><input type="button" value="Continue shopping?" /></a>
+					<input type="submit" value="Send order!" />
+				</div>
+			</section>
+		</div>
+		<footer>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="products.html">Contacts</a></li>
+				<li><a href="products.html">About us</a></li>
+				<li><a href="http://ittalents.bg/" target="_blank">IT Talents</a></li>
+			</ul>
+			<p>&copy; Emag Project - IT Talents Season 5 March 2016</p>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+section {
+	padding-left: 0 !important;
+}
+
+	section .row {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	section .row:first-child {
+		justify-content: flex-start;
+		margin: 20px;
+	}
+	
+		section .row:first-child label {
+			position: relative;
+			top: 10px;
+		}
+		
+		section .row:first-child select:active,
+		section .row:first-child select:focus {
+			outline: 0;
+		}
+
+		section .row a .singleProduct {
+			border: 1px solid #333;
+			border-radius: 5px;
+			height: 230px;
+			margin: 20px;
+			padding: 2px !important;
+			overflow: hidden;
+			box-shadow: 2px 2px 5px #5997E1;
+			position: relative;
+		}
+
+		section .row a .singleProduct:hover {
+			border: 1px solid blue;
+			box-shadow: 2px 2px 5px black;
+			cursor: pointer;
+		}
+		
+			section .row a .singleProduct:hover .productPrice {
+				background-color: black;
+			}
+		
+		a .singleProduct .productPrice {
+			position: absolute;
+			top: 0;
+			right: 0;
+			border: 1px solid black;
+			border-bottom-left-radius: 5px;
+			border-top-right-radius: 4px;
+			border-top: none;
+			border-right: none;
+			padding: 5px;
+			background-color: rgba(0, 0, 0, 0.7);
+			color: white;
+			width: 45%;
+			font-weight: bold;
+			text-align: center;
+			z-index: 4;
+		}
+		
+		a .singleProduct .productPrice sup {
+			font-size: 10px !important;
+		}
+
+			section .row a .singleProduct figure figcaption {
+				text-align: justify;
+				padding: 5px;
+				z-index: 20;
+				position: absolute;
+				bottom: 0;
+				background-color: white;
+			}
+			
+			/*section .row a .singleProduct figure img {
+				max-width: 223px;
+				margin: 0 auto;
+				display: block;
+			}*/
+			
+@media screen and (max-width: 1120px) {
+	section .row a .singleProduct {
+		height: auto;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	section div a article figure figcaption {
+		font-size: 0.8em !important;
+	}
+	
+	.productPrice {
+		font-size: 0.5em !important;
+	}
+}
+
+@media screen and (max-width: 630px) {
+	section .row {
+		display: inline-block;
+		width: 100%;
+	}
+	
+		section .row:first-child {
+			text-align: center;
+		}
+	
+			section div a article figure figcaption {
+				font-size: 1em !important;
+				text-align: center !important;
+			}
+	
+	.productPrice {
+		font-size: 0.7em !important;
+	}
+}

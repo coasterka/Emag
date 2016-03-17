@@ -1,0 +1,69 @@
+section > div .row {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+	align-content: flex-end;
+	margin-bottom: 20px;
+}
+
+	section div a {
+		border: 1px solid black;
+		border-radius: 5px;
+		box-shadow: 2px 2px 5px #5997E1;
+		width: 20%;
+		padding: 10px;
+	}
+	
+	section div a:hover {
+		box-shadow: 2px 2px 5px black;
+	}
+	
+		section div a figure img {
+			width: 100%;
+		}
+	
+		section div a figure figcaption {
+			text-align: center;
+			font-weight: bold;
+			border-top: 1px solid black;
+			padding-top: 5px;	
+		}
+		
+			section div a:hover figure figcaption {
+				color: #6b796b;
+			}
+
+@media screen and (max-width: 1120px) {
+	#main section {
+		padding-top: 20px !important;
+	}
+	
+		#main section div .row a figure figcaption {
+			font-size: 0.9em;
+		}
+}
+
+@media screen and (max-width: 630px) {
+	#main section div .row {
+		display: block;
+	}
+	
+		#main section div .row a {
+			width: 60%;
+			margin: 0 auto;
+			display: block;
+			padding: 10px;
+			margin-bottom: 20px;
+		}
+		
+			#main section div .row a figure img {
+				width: 50%;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			#main section div .row a figure figcaption {
+				margin-top: 10px;
+				font-size: 1.2em;
+			}
+}

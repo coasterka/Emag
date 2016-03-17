@@ -1,0 +1,58 @@
+section {
+	padding-left: 0 !important;
+}
+
+section article {
+	display: flex !important;
+	justify-content: flex-start;
+	border: 1px solid blue;
+	border-radius: 5px;
+	width: 100%;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+	section article div img {
+		max-width: 300px;
+		margin-right: 20px;
+	}
+	
+	section article .specs {
+		border-left: 1px solid blue;
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	section .sendOrderArea {
+		text-align: center;
+	}
+	
+		section .sendOrderArea a,
+		section .sendOrderArea input {
+			margin: 0 20px;
+		}
+		
+@media screen and (max-width: 960px) {
+	.sendOrderArea input,
+	.sendOrderArea a {
+		margin: 0 !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.sendOrderArea input,
+	.sendOrderArea a input {
+		width: 100%;
+		border-radius: 0;
+		-webkit-transition: none;
+		transition: none;
+	}
+	
+	.sendOrderArea input:hover,
+	.sendOrderArea a input:hover {
+		-webkit-transition: none;
+		transition: none;
+	}
+}
