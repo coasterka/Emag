@@ -185,5 +185,37 @@ public class ProductDAO extends AbstractDAO implements IProductDAO {
 		}
 		return null;
 	}
+	
+	public List<Product> getProductByBrand(String brandName) throws EmagInvalidArgumentException, BrandDAOException, ColorDAOException, CategoryDAOException, ProductDAOException{
+		List<Product> productsBrandName = new ArrayList<Product>();
+		try{
+		PreparedStatement ps;
+		IBrandDAO brand = new BrandDAO();
+		int brandId=brand.getBrandByName(brandName);
+		ps = getCon().prepareStatement("SELECT * FROM products WHERE brand_id = ?");
+		ps.setInt(1, brandId);
+		
+		ResultSet resultSet = ps.executeQuery();
+		
+		
+		IColorDAO color = new ColorDAO();
+		ICategoryDAO category = new CategoryDAO();			
+					
+		while(resultSet.next()) {				
+			productsBrandName.add(new Product(brand.getBrandById(resultSet.getInt(2)),
+							resultSet.getString(5),
+							color.getColorById(resultSet.getInt(3)),
+							resultSet.getDouble(7),
+							resultSet.getInt(8),
+							category.getCategoryById(resultSet.getInt(4)),
+							resultSet.getString(6)));
+		}		
+		return productsBrandName;
+	} catch (SQLException e) {			
+		e.printStackTrace();
+		throw new ProductDAOException("The driver cannot be updated right now. Thank you.", e);
+	}
+		
+	}
 
 }

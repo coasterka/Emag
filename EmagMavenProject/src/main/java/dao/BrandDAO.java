@@ -11,6 +11,7 @@ import exceptions.EmagInvalidArgumentException;
 
 public class BrandDAO extends AbstractDAO implements IBrandDAO {
 	
+	private static final String SELECT_FROM_BRANDS_WHERE_BRAND_NAME = "SELECT * FROM brands WHERE brand_name = ?";
 	private static final String INSERT_NEW_BRAND_SQL = "INSERT INTO brands VALUES (null, ?);";
 	private static final String FIND_BRAND_BY_ID_SQL = "SELECT * FROM brands WHERE brand_id = ?";
 	
@@ -58,6 +59,26 @@ public class BrandDAO extends AbstractDAO implements IBrandDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new BrandDAOException("The brand with id " + brandId + " cannot be found . Thank you.", e);
+		}
+	}
+	
+	public int getBrandByName(String brand) throws BrandDAOException{
+		int id;
+
+		try {
+			PreparedStatement ps = getCon().prepareStatement(SELECT_FROM_BRANDS_WHERE_BRAND_NAME);
+			ps.setString(1, brand);
+			ResultSet result = ps.executeQuery();
+			result.next();
+
+			id = result.getInt(1);
+					
+			
+			return id;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new BrandDAOException("The brand with id " + brand + " cannot be found . Thank you.", e);
 		}
 	}
 }

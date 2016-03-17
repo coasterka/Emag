@@ -24,5 +24,7 @@ public interface IProductDAO {
 			BrandDAOException, ColorDAOException, CategoryDAOException;
 	
 	List<Product> getAllProducts() throws CategoryDAOException, EmagInvalidArgumentException;
+	
+	public List<Product> getProductByBrand(String brandName) throws EmagInvalidArgumentException, BrandDAOException, ColorDAOException, CategoryDAOException, ProductDAOException;
 
 }

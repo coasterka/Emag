@@ -30,7 +30,10 @@
 					<a href="aboutUs.html">About us</a>
 				</li>
 				<li>
-					<input type="search" results onsearch="javascript:alert('SEARCH: ' + this.value);" placeholder="Search products..." />
+				<form action="Search" method="post">
+					<input type="search" results onsearch="javascript:alert('SEARCH: ' + this.value);" placeholder="Search products..."  name="search"/>
+					<input type="submit" value="Search" />
+					</form>
 				</li>
 			</ul>
 		</header>
