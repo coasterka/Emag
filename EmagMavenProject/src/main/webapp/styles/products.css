@@ -17,14 +17,6 @@ section {
 			position: relative;
 			top: 10px;
 		}
-	
-		section .row:first-child select {
-			margin-left: 20px;
-			padding: 7px;
-			border-radius: 5px;
-			border: 1px solid #333;
-			width: 165px;
-		}
 		
 		section .row:first-child select:active,
 		section .row:first-child select:focus {

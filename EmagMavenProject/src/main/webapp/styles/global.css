@@ -13,8 +13,8 @@
 	font-family: SiliwangiEngineering;
 }
 
-body, div, p, header, ul, li, a, input, aside, footer, span, section, article, figure,
-img, figcaption {
+body, div, p, header, ul, li, a, input, aside, footer, span, section,
+	article, figure, img, figcaption {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -39,8 +39,7 @@ input:focus, input:active, input:hover {
 	outline: none;
 }
 
-input[type="submit"],
-input[type="button"] {
+input[type="submit"], input[type="button"] {
 	padding: 7px;
 	border-radius: 5px;
 	border: 1px solid #333;
@@ -51,23 +50,27 @@ input[type="button"] {
 	transition: background-color 0.8s;
 }
 
-input[type="text"],
-input[type="password"] {
+input[type="text"], input[type="password"] {
 	border-radius: 5px;
 	padding: 10px;
 	border: 1px solid black;
 }
 
-
-
-input[type="submit"]:hover,
-input[type="button"]:hover {
+input[type="submit"]:hover, input[type="button"]:hover {
 	background-color: white;
 	border: 1px solid black;
 	color: black;
 	cursor: pointer;
 	-webkit-transition: background-color 0.8s;
 	transition: background-color 0.8s;
+}
+
+select {
+	margin-left: 20px;
+	padding: 7px;
+	border-radius: 5px;
+	border: 1px solid #333;
+	width: 165px;
 }
 
 body {
@@ -88,163 +91,157 @@ header #siteTitle {
 	position: relative;
 }
 
-	header #siteTitle p {
-		font-size: 5.3em;
-		color: white;
-		text-shadow: 0 0 20px black;
-		font-family: CaptureIt, Tahoma, sans-serif;
-		padding: 60px 0;
-		text-align: center;
-	}
-	
-	header #siteTitle #userActions {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		width: 150px;
-		height: 26px;
-		padding-top: 3px;
-		border: 1px solid white;
-		border-bottom: none;
-		border-right: none;
-		border-top-left-radius: 5px;
-		background-color: black;
-		z-index: 3;
-	}
-	
-		header #siteTitle #userActions * {
-			color: white;
-			font-weight: bold;
-			font-size: 1.4em;
-			font-family: Tahoma, sans-serif;
-		}
-		
-		header #siteTitle #userActions a {
-			padding: 5px;
-			-webkit-transition: color 0.8s; /* Safari */
-			transition: color 0.8s;
-		}
-		
-			header #siteTitle #userActions a:hover {
-				color: #5997e1;
-				text-shadow: 1px 1px 3px black;
-				-webkit-transition: color 0.8s; /* Safari */
-    			transition: color 0.8s;
-			}
-		
-		header #siteTitle #userActions span {
-			padding: 0;
-			padding: 0 10px;
-		}
+header #siteTitle p {
+	font-size: 5.3em;
+	color: white;
+	text-shadow: 0 0 20px black;
+	font-family: CaptureIt, Tahoma, sans-serif;
+	padding: 60px 0;
+	text-align: center;
+}
 
-header > ul {
+header #siteTitle #userActions {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 150px;
+	height: 26px;
+	padding-top: 3px;
+	border: 1px solid white;
+	border-bottom: none;
+	border-right: none;
+	border-top-left-radius: 5px;
+	background-color: black;
+	z-index: 3;
+}
+
+header #siteTitle #userActions * {
+	color: white;
+	font-weight: bold;
+	font-size: 1.4em;
+	font-family: Tahoma, sans-serif;
+}
+
+header #siteTitle #userActions a {
+	padding: 5px;
+	-webkit-transition: color 0.8s; /* Safari */
+	transition: color 0.8s;
+}
+
+header #siteTitle #userActions a:hover {
+	color: #5997e1;
+	text-shadow: 1px 1px 3px black;
+	-webkit-transition: color 0.8s; /* Safari */
+	transition: color 0.8s;
+}
+
+header #siteTitle #userActions span {
+	padding: 0;
+	padding: 0 10px;
+}
+
+header>ul {
 	display: flex;
 	justify-content: space-around;
 	height: 45px;
 	background-color: #6b796b;
 }
 
-	header > ul li {
-		margin-top: 7px;
-	}
+header>ul li {
+	margin-top: 7px;
+}
 
-		header > ul li a {
-			border: 1px solid white;
-			color: white;
-			background: black;
-			padding: 5px 25px;
-			text-align: center;
-			border-radius: 5px;
-			font-size: 1.5em;
-			text-transform: uppercase;
-			font-family: Tahoma, sans-serif;
-			display: inline-block;
-		}
-		
-		/*header > ul li a#adminMenu {
+header>ul li a {
+	border: 1px solid white;
+	color: white;
+	background: black;
+	padding: 5px 25px;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 1.5em;
+	text-transform: uppercase;
+	font-family: Tahoma, sans-serif;
+	display: inline-block;
+}
+
+/*header > ul li a#adminMenu {
 			display: none;
 		}*/
-		
-		header ul li input[type="search"] {
-			border: 1px solid black;
-			padding: 5px 10px;
-			width: 240px;
-			border-radius: 5px;
-			background-color: black;
-			color: white;
-			font-size: 1.5em;
-			font-family: Tahoma, sans-serif;
-		}
-		
-		header ul li ::-webkit-input-placeholder {
-			color: white;
-		}
-		
+header ul li input[type="search"] {
+	border: 1px solid black;
+	padding: 5px 10px;
+	width: 240px;
+	border-radius: 5px;
+	background-color: black;
+	color: white;
+	font-size: 1.5em;
+	font-family: Tahoma, sans-serif;
+}
+
+header ul li ::-webkit-input-placeholder {
+	color: white;
+}
+
 #main {
 	width: inherit;
 	overflow: auto;
-	position: relative;	
+	position: relative;
 }
 
-	#main section article {
-		padding: 20px;
-		font-size: 1.6em;
-		display: inline-block;
-		float: left;
-		text-align: justify;
-		padding-left: 0;
-	}
-	
-	#main aside {
-		padding: 0;
-		position: relative;
-		width: 20%;
-		display: inline-block;
-	}
+#main section article {
+	padding: 20px;
+	font-size: 1.6em;
+	display: inline-block;
+	float: left;
+	text-align: justify;
+	padding-left: 0;
+}
 
-		#main aside ul {
-			border-top: 1px solid black;
-			border-right: 1px solid black;
-			background-color: #6b796b;
-			display: flex;
-			flex-direction: column;
-			padding: 0;
-		}
-	
-			
-				
-				#main aside ul li a {
-					color: white;
-					font-size: 14px;
-					display: inline-block;
-					text-transform: uppercase;
-					padding: 10px 5px;
-					width: 100%;
-					font-family: Tahoma, sans-serif;
-					
-				}
-				
-				
-				
-		#main aside #promotionsBanner {
-			width: 100%;
-			margin-top: 15px;
-			height: 300px;
-		}
-				
-	#main section {
-		position: relative;
-		float: right;
-		width: 78%;
-		top: 0;
-		padding: 20px;
-	}
-	
-		#main section * {
-			font-size: 14px;
-			font-family: Tahoma, sans-serif;
-		}
-		
+#main aside {
+	padding: 0;
+	position: relative;
+	width: 20%;
+	display: inline-block;
+}
+
+#main aside ul {
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	background-color: #6b796b;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+#main aside ul li a {
+	color: white;
+	font-size: 14px;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 10px 5px;
+	width: 100%;
+	font-family: Tahoma, sans-serif;
+}
+
+#main aside #promotionsBanner {
+	width: 100%;
+	margin-top: 15px;
+	height: 300px;
+}
+
+#main section {
+	position: relative;
+	float: right;
+	width: 78%;
+	top: 0;
+	padding: 20px;
+}
+
+#main section * {
+	font-size: 14px;
+	font-family: Tahoma, sans-serif;
+}
+
 footer {
 	color: white;
 	width: inherit;
@@ -253,38 +250,37 @@ footer {
 	padding: 10px;
 }
 
-	footer p {
-		text-align: center;
-		font-size: 1.6em;
-		padding-top: 10px;
-	}
-	
-	footer ul {
-		display: flex;
-		justify-content: space-around;
-	}
-	
-		footer ul li a {
-			font-weight: bold;
-			color: white;
-			font-size: 1.5em;
-			border-left: 1px solid white;
-			border-right: 1px solid white;
-			padding: 0 10px;
-			-webkit-transition: color 0.8s; /* Safari */
-    		transition: color 0.8s;
-		}
-		
-		footer ul li a:hover {
-			/*color: #6B796B;*/
-			color: #5997e1;
-			-webkit-transition: color 0.8s; /* Safari */
-    		transition: color 0.8s;
-		}
-		
+footer p {
+	text-align: center;
+	font-size: 1.6em;
+	padding-top: 10px;
+}
+
+footer ul {
+	display: flex;
+	justify-content: space-around;
+}
+
+footer ul li a {
+	font-weight: bold;
+	color: white;
+	font-size: 1.5em;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+	padding: 0 10px;
+	-webkit-transition: color 0.8s; /* Safari */
+	transition: color 0.8s;
+}
+
+footer ul li a:hover {
+	/*color: #6B796B;*/
+	color: #5997e1;
+	-webkit-transition: color 0.8s; /* Safari */
+	transition: color 0.8s;
+}
+
 @media screen and (min-width: 801px) {
-		
-	header > ul li a {
+	header>ul li a {
 		vertical-align: middle;
 		-webkit-transform: translateZ(0);
 		transform: translateZ(0);
@@ -298,8 +294,7 @@ footer {
 		-webkit-transition-duration: 0.5s;
 		transition-duration: 0.5s;
 	}
-	
-	header > ul li a:before {
+	header>ul li a:before {
 		content: "";
 		position: absolute;
 		z-index: -1;
@@ -319,161 +314,131 @@ footer {
 		-webkit-transition-timing-function: ease-out;
 		transition-timing-function: ease-out;
 	}
-	
-	header > ul li a:hover,
-	header > ul li a:focus,
-	header > ul li a:active {
+	header>ul li a:hover, header>ul li a:focus, header>ul li a:active {
 		color: black;
 	}
-	
-	header > ul li a:hover:before,
-	header > ul li a:focus:before,
-	header > ul li a:active:before {
+	header>ul li a:hover:before, header>ul li a:focus:before, header>ul li a:active:before
+		{
 		-webkit-transform: scaleY(1);
 		transform: scaleY(1);
 		border-radius: 4px;
 	}
-	
 	#main aside ul li {
 		border-bottom: 1px solid black;
 		-webkit-transition: background-color 0.5s;
 		transition: background-color 0.5s;
 	}
-	
 	#main aside ul li:hover {
 		background-color: black;
 		-webkit-transition: background-color 0.5s;
 		transition: background-color 0.5s;
 		cursor: pointer;
 	}
-	
-		#main aside ul li a {
-			-webkit-transition: color 0.5s;
-			transition: color 0.5s;
-		}
-	
-		#main aside ul li:hover a {
-			color: skyblue;
-			-webkit-transition: color 0.5s;
-			transition: color 0.5s;
-		}
-		
-		#main aside ul li a:before {
-			content: "\> ";
-			color: black;
-			-webkit-transition: color 0.5s;
-			transition: color 0.5s;
-		}
-	
-		#main aside ul li:hover a:before {
-			color: white;
-			-webkit-transition: color 0.5s;
-			transition: color 0.5s;
-		}
+	#main aside ul li a {
+		-webkit-transition: color 0.5s;
+		transition: color 0.5s;
+	}
+	#main aside ul li:hover a {
+		color: skyblue;
+		-webkit-transition: color 0.5s;
+		transition: color 0.5s;
+	}
+	#main aside ul li a:before {
+		content: "\> ";
+		color: black;
+		-webkit-transition: color 0.5s;
+		transition: color 0.5s;
+	}
+	#main aside ul li:hover a:before {
+		color: white;
+		-webkit-transition: color 0.5s;
+		transition: color 0.5s;
+	}
 }
-		
+
 @media screen and (max-width: 1120px) {
 	#wrapper {
 		width: 100%;
 	}
-	
-		#wrapper #main section {
-			padding: 0;
-		}
-		
-			#wrapper #main section article {
-				padding: 10px;
-			}
+	#wrapper #main section {
+		padding: 0;
+	}
+	#wrapper #main section article {
+		padding: 10px;
+	}
 }
 
 @media screen and (max-width: 800px) {
 	header #siteTitle p {
 		font-size: 3em;
 	}
-		
 	header ul {
 		width: 100%;
 		flex-direction: column;
 		justify-content: flex-start;
 		height: inherit;
 	}
-	
-		header ul li {
-			width: 100%;
-			z-index: 10;
-			padding: 0;
-			margin: 0;
-		}
-			header ul li a,
-			#main aside ul li a {
-				width: 100%;
-				-webkit-transition: 0;
-				transition: 0;
-				border-radius: 0;
-				padding: 5px 0;
-				font-size: 14px;
-			}
-			
-			header ul li a:hover,
-			#main aside ul li a:hover {
-				background-color: white;
-				color: black;
-				-webkit-transition: 0;
-				transition: 0;
-			}
-			
-			header ul li input[type="search"] {
-				/*width: 100%;
+	header ul li {
+		width: 100%;
+		z-index: 10;
+		padding: 0;
+		margin: 0;
+	}
+	header ul li a, #main aside ul li a {
+		width: 100%;
+		-webkit-transition: 0;
+		transition: 0;
+		border-radius: 0;
+		padding: 5px 0;
+		font-size: 14px;
+	}
+	header ul li a:hover, #main aside ul li a:hover {
+		background-color: white;
+		color: black;
+		-webkit-transition: 0;
+		transition: 0;
+	}
+	header ul li input[type="search"] {
+		/*width: 100%;
 				border-radius: 0;
 				border: 1px solid white;*/
-				display: none;
-			}
-	
+		display: none;
+	}
 	#main {
 		display: flex;
 		flex-direction: column;
 	}
-	
-		#main section {
-			width: 100%;
-			text-align: justify;
-		}
-		
-			#main section article {
-				padding: 5px 0;
-			}
-	
-		#main aside {
-			width: 100%;
-		}
-		
-		#main aside ul li {
-			margin: 0 !important;
-		}
-		
-			#main aside ul li:last-child {
-				display: none;
-			}
-	
-			#main aside ul li a {
-				padding: 5px 0;
-				text-align: center;
-				background-color: black;
-				border: 1px solid white;
-			}
-			
-			#main aside ul li a:before {
-				content: "";
-			}
-			
+	#main section {
+		width: 100%;
+		text-align: justify;
+	}
+	#main section article {
+		padding: 5px 0;
+	}
+	#main aside {
+		width: 100%;
+	}
+	#main aside ul li {
+		margin: 0 !important;
+	}
+	#main aside ul li:last-child {
+		display: none;
+	}
+	#main aside ul li a {
+		padding: 5px 0;
+		text-align: center;
+		background-color: black;
+		border: 1px solid white;
+	}
+	#main aside ul li a:before {
+		content: "";
+	}
 	#promotionsBanner {
 		display: none;
 	}
-	
 	footer ul {
 		display: none;
 	}
-	
 	footer p {
 		padding-top: 0;
 	}
