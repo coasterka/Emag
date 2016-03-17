@@ -11,7 +11,7 @@ import products.Product;
 
 public interface IProductDAO {
 
-	int addProduct(Product product) throws ProductDAOException;
+	int addProduct(Product product) throws ProductDAOException, BrandDAOException, ColorDAOException;
 
 	void updateProduct(Product product) throws ProductDAOException;
 

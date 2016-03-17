@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
 
-	private static final String DB_PASS = "xp3R!aZL";
+	private static final String DB_PASS = "root";
 	private static final String DB_USER = "root";
 	private static final String DB_NAME = "emag_db";
 	private static final String DB_PORT = "3306";

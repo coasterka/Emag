@@ -19,22 +19,30 @@ import products.Product;
 
 public class ProductDAO extends AbstractDAO implements IProductDAO {
 	
-	private static final String INSERT_NEW_PRODUCT_SQL = "INSERT INTO products VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?);";
+	private static final String INSERT_NEW_PRODUCT_SQL = "INSERT INTO products VALUES (null, ?, ?, ?, ?, ?, ?, ?);";
 	private static final String UPDATE_PRODUCT_SQL = "UPDATE products SET brand_id = ?, color_id = ?, category_id = ?, "
 			+ "model = ?, characteristics = ?, price = ?, qty_left = ? WHERE product_id = ?;";
 	private static final String FIND_PRODUCT_BY_ID_SQL = "SELECT * FROM products WHERE product_id = ?";
 	
 	@Override
-	public int addProduct (Product product) throws ProductDAOException {
+	public int addProduct (Product product) throws ProductDAOException, BrandDAOException, ColorDAOException {
 		if (product != null) {
 
 			try {
 				PreparedStatement ps = getCon().prepareStatement(INSERT_NEW_PRODUCT_SQL,
 						PreparedStatement.RETURN_GENERATED_KEYS);
-								
-				ps.setInt(1, product.getBrand().getId());
-				ps.setInt(2, product.getColor().getId());
-				ps.setInt(3, product.getCategory().getCategoryID());				
+				
+				Brand brand = product.getBrand();
+				int brandId = new BrandDAO().getBrandByName(brand.name());
+				Color color = product.getColor();
+				int colorId = new ColorDAO().getColorByName(color.name());
+				Category cat = product.getCategory();
+				int categoryId = new CategoryDAO().getCatgoryByName(cat.getName());
+				
+				
+				ps.setInt(1, brandId);
+				ps.setInt(2, colorId);
+				ps.setInt(3, categoryId);				
 				ps.setString(4, product.getModel());
 				ps.setString(5, product.getCharacteristics());
 				ps.setDouble(6, product.getPrice());

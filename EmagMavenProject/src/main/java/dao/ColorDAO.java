@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 
 import engine.Color;
+import exceptions.BrandDAOException;
 import exceptions.ColorDAOException;
 import exceptions.EmagInvalidArgumentException;
 
@@ -13,6 +14,7 @@ public class ColorDAO extends AbstractDAO implements IColorDAO {
 
 	private static final String INSERT_NEW_COLOR_SQL = "INSERT INTO colors VALUES (null, ?);";
 	private static final String FIND_COLOR_BY_ID_SQL = "SELECT * FROM colors WHERE color_id = ?";
+	private static final String SELECT_FROM_COLORS_WHERE_COLOR_NAME = "SELECT * FROM colors WHERE color_name = ?";
 
 	@Override
 	public int addColor(Color color) throws ColorDAOException {
@@ -58,6 +60,26 @@ public class ColorDAO extends AbstractDAO implements IColorDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new ColorDAOException("The color with id " + colorId + " cannot be found . Thank you.", e);
+		}
+	}
+	
+	public int getColorByName(String color) throws ColorDAOException{
+		int id;
+
+		try {
+			PreparedStatement ps = getCon().prepareStatement(SELECT_FROM_COLORS_WHERE_COLOR_NAME);
+			ps.setString(1, color);
+			ResultSet result = ps.executeQuery();
+			result.next();
+
+			id = result.getInt(1);
+					
+			
+			return id;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ColorDAOException("The color with name " + color + " cannot be found . Thank you.", e);
 		}
 	}
 }
