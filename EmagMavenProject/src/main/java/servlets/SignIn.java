@@ -35,7 +35,9 @@ public class SignIn extends HttpServlet {
 				if (Validate.isUserAdminById()) {
 					HttpSession session = request.getSession();
 					session.setAttribute("name", username);
-					response.sendRedirect("adminPages/admin.html");
+					out.println("<script>alert(\"Welcome, " + username + "!\");</script>");
+//					response.sendRedirect("adminPages/admin.html");
+					out.println("<script>document.location = \"adminPages/admin.html\";</script>");
 				}
 				else {
 					rd = request.getRequestDispatcher("CheckUserResult");
