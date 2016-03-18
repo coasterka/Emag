@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import engine.Validate;
 import exceptions.EmagInvalidArgumentException;
@@ -32,6 +33,8 @@ public class SignIn extends HttpServlet {
 		if (Validate.checkUserOnSignIn(username, password)) {			
 			try {
 				if (Validate.isUserAdminById()) {
+					HttpSession session = request.getSession();
+					session.setAttribute("name", username);
 					response.sendRedirect("adminPages/admin.html");
 				}
 				else {
